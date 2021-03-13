@@ -47,25 +47,25 @@ class IO:
             self.personnel.add(Personnel(cmdLst[2].lower(), cmdLst[3].lower(), int(cmdLst[4]), cmdLst[5].lower()))
             self.personnel.saveJson()
           else:
-            print(">> Le role doit être de type text !\n")
+            print(">> Le role doit être de type text (The role must be of type text)!\n")
         else:
-          print(">> L'age doit être une valeur numérique !\n")
+          print(">> L'age doit être une valeur numérique (Age must be a numeric value)!\n")
       else:
-        print(">> Le nom et prénom doivent être de type text !\n")
+        print(">> Le nom et prénom doivent être de type text (The first and last name must be of type text)!\n")
     else:
-      print(">> Le deuxième paramètre doit être : patient ou personnel !\n")
+      print(">>  !Le deuxième paramètre doit être : patient ou personnel (The second parameter must be: patient or personal)\n")
 
   # --- READ ---
   def read(self, _param):
-    """Affiche soit : (la liste des patients ordonnés et du personnel) ou (les informations d'un occupant)."""
+    """Displays either: (the list of ordered patients and staff) or (the information of an occupant)"""
     if type(_param) == str:
       x = _param.lower()
       if not self.patients.sort(x):
-        print(">> Le registre des patients est vide !\n")
+        print(">> Le registre des patients est vide (Patient register is empty)!\n")
       if not self.personnel.sort(x):
-        print(">> Le registre du personnel est vide !\n")
+        print(">> Le registre du personnel est vide (The personnel register is empty)!\n")
     else:
-      print(">> Le deuxième paramètre est incorrect !\n")
+      print(">> Le deuxième paramètre est incorrect (The second parameter is incorrect)!\n")
 
   # --- UPDATE ---
   def update(self, cmdLst):
