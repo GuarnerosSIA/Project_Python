@@ -1,0 +1,13 @@
+[
+  {
+    "nom": "travis",
+    "prenom": "john",
+    "age": 25,
+    "symptomes": {
+      "toux": 2,
+      "fievre": 4
+    },
+    "type": "patient",
+    "etat": 3.0
+  }
+]
