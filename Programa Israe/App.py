@@ -56,4 +56,5 @@ while True:
     exit()
 
   else:
-    print(">> Commande incorrecte (Incorrect order)! \n")
+    print(">> Commande incorrecte (Incorrect order)!")
+    print(">> Réviser l'orthographe ou les doubles espaces (Review spelling or double spaces)!")

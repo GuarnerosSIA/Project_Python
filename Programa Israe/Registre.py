@@ -39,10 +39,7 @@ class Registre:
       self.liste = tmpLst
       self.saveJson()
       print()
-      if find:
-        return True
-      else:
-        return False
+      return find
 
   # --- REMOVE ---
   def remove(self, _param):
@@ -57,10 +54,7 @@ class Registre:
         tmpLst.append(x)
     self.liste = tmpLst
     self.saveJson()
-    if not find:
-      return False
-    else:
-      return True
+    return find
 
   # --- SORT ---
   def sort(self, _param):
@@ -91,8 +85,8 @@ class Registre:
           if x['nom'] == _param:
             print(self.printOccup(x), "\n")
             find = True
-          if not find:
-            print(">> Aucun {0} correspondant à {1} (No {0} corresponds to {1})!\n".format(self.liste[0]['type'], _param.upper()))
+        if not find:
+          print(">> Aucun {0} correspondant à {1} (No {0} corresponds to {1})!\n".format(self.liste[0]['type'], _param.upper()))
       return True
     else:
       return False
@@ -116,6 +110,7 @@ class Registre:
     """Save the List in a JSON file"""
     with open(self.chemin, 'w') as outf:
       json.dump(self.liste, outf, ensure_ascii=False, indent=2)
+      
 
   # --- LOAD JSON ---
   def loadJson(self):

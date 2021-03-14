@@ -1,29 +1,6 @@
 [
   {
-    "nom": "aaron",
-    "prenom": "burr",
-    "age": 60,
-    "symptomes": {
-      "toux": 1,
-      "fievre": 2,
-      "douleurs musculaires": 5
-    },
-    "type": "patient",
-    "etat": 2.6666666666666665
-  },
-  {
-    "nom": "emmanuel",
-    "prenom": "arenas",
-    "age": 10,
-    "symptomes": {
-      "toux": 5,
-      "fievre": 4
-    },
-    "type": "patient",
-    "etat": 4.5
-  },
-  {
-    "nom": "felix",
+    "nom": "Elizabeth",
     "prenom": "ricart",
     "age": 20,
     "symptomes": {
@@ -32,5 +9,38 @@
     },
     "type": "patient",
     "etat": 5.0
+  },
+  {
+    "nom": "sandoval",
+    "prenom": "adan",
+    "age": 85,
+    "symptomes": {
+      "dolre": 1,
+      "toux": 3
+    },
+    "type": "patient",
+    "etat": 2.0
+  },
+  {
+    "nom": "aaron",
+    "prenom": "burr",
+    "age": 12,
+    "symptomes": {
+      "Male": 1,
+      "toux": 1
+    },
+    "type": "patient",
+    "etat": 1.0
+  },
+  {
+    "nom": "abril",
+    "prenom": "diaz",
+    "age": 25,
+    "symptomes": {
+      "fiebre": 2,
+      "toux": 3
+    },
+    "type": "patient",
+    "etat": 2.5
   }
 ]

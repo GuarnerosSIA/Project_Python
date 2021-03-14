@@ -1,16 +1,23 @@
 [
   {
-    "nom": "alex",
-    "prenom": "ham",
-    "age": 25,
-    "role": "biom",
+    "nom": "alexander",
+    "prenom": "hamilton",
+    "age": 45,
+    "role": "médecin",
     "type": "personnel"
   },
   {
-    "nom": "alex",
-    "prenom": "guarn",
-    "age": 25,
-    "role": "medecine",
+    "nom": "kenny",
+    "prenom": "morales",
+    "age": 30,
+    "role": "economist",
+    "type": "personnel"
+  },
+  {
+    "nom": "rosalía",
+    "prenom": "smith",
+    "age": 30,
+    "role": "ingénieure",
     "type": "personnel"
   }
 ]

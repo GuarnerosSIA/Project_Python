@@ -79,6 +79,10 @@ class IO:
         if cmdLst[1].lower() == 'age':
           if self.ifInt(var):
             var = int(var)
+            if not self.patients.update(cmdLst[1].lower(), cmdLst[2].lower(), var):
+              print(">> Aucun {0} dans le registre patient ({0} Is not in the patient registry)!\n".format(cmdLst[2].upper()))
+            if not self.personnel.update(cmdLst[1].lower(), cmdLst[2].lower(), var):
+              print(">> Aucun {0} dans le registre personnel ({0} Is not in the personnel registry)!\n".format(cmdLst[2].upper()))
           else:
             print(">> L'age doit être une valeur numérique (Age must be a numeric value)!\n")
             return False
@@ -108,7 +112,7 @@ class IO:
   # --- TEST 1 ---
   def test_1(self):
     """Test method test 1"""
-    self.create(["create", "patient", "Aaron", "Burr", 60, "{'toux':1,'fievre':2, 'douleurs musculaires':5}"])
+    self.create(["create", "patient", "Aaron", "Burr", 60, "{'toux':1,'fievre':2,'douleurs musculaires':5}"])
     self.create(["create", "personnel", "Alexander", "Hamilton", 45, "médecin"])
     self.patients.dropLst()
     self.personnel.dropLst()
@@ -125,7 +129,7 @@ class IO:
     self.personnel.loadJson()
     self.read("all")
     self.personnel.update("age", "Alexander", 47)
-    self.delete("moser")
+    self.delete("Paco")
     self.read("all")
   
   # --- IF INT ---

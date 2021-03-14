@@ -1,7 +1,7 @@
 #! /usr/bin/env python3.6
 # -*- coding: utf-8 -*-
 from Occupant import *
-from Symptome import *
+
 
 class Patient(Occupant):
   """
@@ -14,11 +14,9 @@ class Patient(Occupant):
   def __init__(self, _nom, _prenom, _age, _symptomes):
     super().__init__(_nom, _prenom, _age)
     self.symptomes = eval(_symptomes) # Dictionary creation
-    self.symptomesClass = []
     self.type = 'patient' 
     somme = 0
     for key, value in self.symptomes.items():
-      self.symptomesClass.append()
       somme += value
     self.etat = somme / len(self.symptomes)
     print(self)
@@ -31,8 +29,6 @@ class Patient(Occupant):
 
   # --- IS SICK ---
   def is_sick(self):
-    """Return True if the mean average severity of the symptomes is greater than 3"""
-    if self.etat >= 3:
-      return True
-    else:
-      return False
+    """Return True if the mean average severity of the symptomes is greater or equal than 3"""
+    return self.etat >= 3
+  
