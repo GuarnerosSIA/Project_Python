@@ -26,8 +26,8 @@ class IO:
             try:
               sympLst = eval(cmdLst[5])
             except:
-              print(">> La liste des symptomes doit être de type dictionnaire sans espaces (The list of symptoms must be dictionary type without spaces) !")
-              print(">> exemple (example): {'toux':1,'fievre':5}\n")
+              print(">> La liste des symptomes doit être de type dictionnaire (The list of symptoms must be dictionary type without spaces) !")
+              print(">> exemple (example): {'Mal de crâne':1,'toux':5}\n")
             else:
               if type(sympLst) == dict:
                 ok = True
@@ -43,6 +43,9 @@ class IO:
                 else:
                   print(">> La structure de la liste des symptomes est incorrecte (la sévérité doit entre 1 et 5)")
                   print(">> The structure of the symptom list is incorrect (severity must be between 1 and 5)\n")
+              else:
+                print(">> La liste des symptomes doit être de type dictionnaire (The list of symptoms must be dictionary type without spaces) !")
+                print(">> exemple (example): {'Mal de crâne':1,'toux':5}\n")
           elif cmdLst[1].lower() == "personnel" and type(cmdLst[5]) == str:
             self.personnel.add(Personnel(cmdLst[2].lower(), cmdLst[3].lower(), int(cmdLst[4]), cmdLst[5].lower()))
             self.personnel.saveJson()

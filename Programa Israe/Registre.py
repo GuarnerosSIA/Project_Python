@@ -12,6 +12,7 @@ class Registre:
 
   # === CONSTRUCTOR ===
   def __init__(self, _chemin):
+    """The path is use to find the File"""
     self.chemin = _chemin
     self.liste = []
 

@@ -8,3 +8,5 @@ class Symptome:
     def __init__(self, _nom, _niveau):
         self.nom = _nom
         self.niveau = _niveau
+    def __str__(self):
+        return "Symptome (Symptom): {}, severity (severity):{}".format(self.nom, self.niveau)

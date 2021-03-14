@@ -12,14 +12,25 @@
     "etat": 2.6666666666666665
   },
   {
-    "nom": "a",
-    "prenom": "b",
+    "nom": "emmanuel",
+    "prenom": "arenas",
     "age": 10,
     "symptomes": {
-      "Ay": 5,
-      "no": 4
+      "toux": 5,
+      "fievre": 4
     },
     "type": "patient",
     "etat": 4.5
+  },
+  {
+    "nom": "felix",
+    "prenom": "ricart",
+    "age": 20,
+    "symptomes": {
+      "dolre": 5,
+      "toux": 5
+    },
+    "type": "patient",
+    "etat": 5.0
   }
 ]
