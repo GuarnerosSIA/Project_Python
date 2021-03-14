@@ -1,13 +1,25 @@
 [
   {
-    "nom": "travis",
-    "prenom": "john",
-    "age": 25,
+    "nom": "aaron",
+    "prenom": "burr",
+    "age": 60,
     "symptomes": {
-      "toux": 2,
-      "fievre": 4
+      "toux": 1,
+      "fievre": 2,
+      "douleurs musculaires": 5
     },
     "type": "patient",
-    "etat": 3.0
+    "etat": 2.6666666666666665
+  },
+  {
+    "nom": "a",
+    "prenom": "b",
+    "age": 10,
+    "symptomes": {
+      "Ay": 5,
+      "no": 4
+    },
+    "type": "patient",
+    "etat": 4.5
   }
 ]

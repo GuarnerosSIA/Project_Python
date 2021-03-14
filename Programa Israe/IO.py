@@ -69,7 +69,7 @@ class IO:
 
   # --- UPDATE ---
   def update(self, cmdLst):
-    """Permet de metre à jour les informations d'un occupant."""
+    """Allows you to update the information of an occupant."""
     if type(cmdLst[2]) == str:
       var = cmdLst[3]
       if cmdLst[1].lower() in ('nom', 'prenom', 'age'):
@@ -77,58 +77,57 @@ class IO:
           if self.ifInt(var):
             var = int(var)
           else:
-            print(">> L'age doit être une valeur numérique !\n")
+            print(">> L'age doit être une valeur numérique (Age must be a numeric value)!\n")
             return False
         else:
           if type(var) == str:
             if not self.patients.update(cmdLst[1].lower(), cmdLst[2].lower(), var):
-              print(">> Aucun {} dans le registre patient !\n".format(cmdLst[2].upper()))
+              print(">> Aucun {0} dans le registre patient ({0} Is not in the patient registry)!\n".format(cmdLst[2].upper()))
             if not self.personnel.update(cmdLst[1].lower(), cmdLst[2].lower(), var):
-              print(">> Aucun {} dans le registre personnel !\n".format(cmdLst[2].upper()))
+              print(">> Aucun {0} dans le registre personnel ({0} Is not in the personnel registry)!\n".format(cmdLst[2].upper()))
 
           else:
-            print(">> L'age doit être une valeur numérique !\n")
+            print(">> L'age doit être une valeur numérique (Age must be a numeric value)!\n")
       else:
-        print(">> Le dexième paramètre doit être : nom, prenom ou age !\n")
+        print(">> Le dexième paramètre doit être : nom, prenom ou age (The second parameter must be: name, first name or age)!\n")
     else:
-      print(">> Le nom est incorrect !\n")
+      print(">> Le nom est incorrect (The name is incorrect)!\n")
 
   # --- DELETE ---
   def delete(self, _param):
-    """Permet de supprimer un occupant."""
+    """Allows to delete an Occupant"""
     if type(_param) == str:
       if not self.patients.remove(_param.lower()) and not self.personnel.remove(_param.lower()):
-        print(">> L'occupant {} est introuvable !\n".format(_param.upper()))
+        print(">> L'occupant {0} est introuvable (The Occupant {0} cannot be found)!\n".format(_param.upper()))
     else:
-      print(">> Le nom est incorrect !\n")
+      print(">> Le nom est incorrect (The name is incorrect)!\n")
 
   # --- TEST 1 ---
   def test_1(self):
-    """Méthode de test 1"""
-    self.create(["create", "patient", "smith", "john", 25, "{'toux':2,'fievre':4}"])
-    self.create(["create", "personnel", "moser", "mau-britt", 54, "neuroscientist"])
+    """Test method test 1"""
+    self.create(["create", "patient", "Aaron", "Burr", 60, "{'toux':1,'fievre':2, 'douleurs musculaires':5}"])
+    self.create(["create", "personnel", "Alexander", "Hamilton", 45, "médecin"])
     self.patients.dropLst()
     self.personnel.dropLst()
-    print(">> Listes patient et personnel effacées.")
+    print(">> Le registre a été supprimé (The registry has been deleted)")
     self.patients.loadJson()
     self.personnel.loadJson()
-    print(">> Listes patient et personnel chargées à partir des fichiers json.")
+    print(">> Le registre a été chargé à partir d'un fichier JSON (The registry has been loaded from a JSON file)")
     self.read("all")
 
   # --- TEST 2 ---
   def test_2(self):
-    """Méthode de test 2"""
+    """Test methode 2"""
     self.patients.loadJson()
     self.personnel.loadJson()
-    print(">> Listes patient et personnel chargées à partir des fichiers json.")
     self.read("all")
-    self.patients.update("nom", "smith", "travis")
+    self.personnel.update("age", "Alexander", 47)
     self.delete("moser")
     self.read("all")
-
+  
   # --- IF INT ---
   def ifInt(self, arg):
-    """Retourne True si convertible en Int, sinon False."""
+    """Returns True if convertible to Int, otherwise False."""
     try:
       var = int(arg)
     except:

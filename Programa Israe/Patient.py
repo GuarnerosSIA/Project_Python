@@ -25,11 +25,11 @@ class Patient(Occupant):
     return '{self.__class__.__name__}({self.nom}, {self.prenom}, {self.age}, {self.etat})'.format(self=self)
 
   def __str__(self):
-    return '>> Le patient {} {} {} (sévérité : {}) à été ajouté !'.format(self.nom.upper(), self.prenom.capitalize(), self.age, self.etat)
+    return '>> Le patient {0} {1} {2} (sévérité : {3}) à été ajouté ! (Patient {0} {1} {2} (severity: {3}) has been added!){4}'.format(self.nom.upper(), self.prenom.capitalize(), self.age, self.etat, self.symptomes)
 
   # --- IS SICK ---
   def is_sick(self):
-    """Retourne True si le patient à une moyenne des symptomes >= 3, sinon False"""
+    """Return True if the mean average severity of the symptomes is greater than 3"""
     if self.etat >= 3:
       return True
     else:

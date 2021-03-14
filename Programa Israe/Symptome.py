@@ -3,7 +3,7 @@
 class Symptome:
     """
     CLASS SYMPTOME
-    Symp
+    This class encapsulate the possible symptomes asscoiated to a patient
     """
     def __init__(self, _nom, _niveau):
         self.nom = _nom

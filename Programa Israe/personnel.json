@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "nom": "alexander",
+    "prenom": "hamilton",
+    "age": 45,
+    "role": "médecin",
+    "type": "personnel"
+  }
+]

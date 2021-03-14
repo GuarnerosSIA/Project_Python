@@ -91,7 +91,7 @@ class Registre:
             print(self.printOccup(x), "\n")
             find = True
           if not find:
-            print(">> Aucun {0} correspondant à {1} (REVIEW REVIEW REVIEW)!\n".format(self.liste[0]['type'], _param.upper()))
+            print(">> Aucun {0} correspondant à {1} (No {0} corresponds to {1})!\n".format(self.liste[0]['type'], _param.upper()))
       return True
     else:
       return False
@@ -118,6 +118,11 @@ class Registre:
 
   # --- LOAD JSON ---
   def loadJson(self):
-    """Load data from a JASON file format"""
-    with open(self.chemin, 'r') as inf:
-      self.liste = json.load(inf)
+    """
+    Load data from a JASON file format. Verify the existence of the file
+    """
+    try:
+      with open(self.chemin, 'r') as inf:
+        self.liste = json.load(inf)
+    except IOError:
+      print(">> Il n'y a pas de fichier précédent à charger (Ther is no previous file to load) !")
