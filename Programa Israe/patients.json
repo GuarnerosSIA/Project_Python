@@ -1,16 +1,5 @@
 [
   {
-    "nom": "burr",
-    "prenom": "roxxane",
-    "age": 23,
-    "symptomes": {
-      "toux": 4,
-      "fiebre": 2
-    },
-    "type": "patient",
-    "etat": 3.0
-  },
-  {
     "nom": "madison",
     "prenom": "jefferson",
     "age": 23,
@@ -31,5 +20,69 @@
     },
     "type": "patient",
     "etat": 5.0
+  },
+  {
+    "nom": "aaron",
+    "prenom": "burr",
+    "age": 60,
+    "symptomeLst": [
+      {
+        "nom": "toux",
+        "niveau": 1
+      },
+      {
+        "nom": "fievre",
+        "niveau": 2
+      },
+      {
+        "nom": "douleurs musculaires",
+        "niveau": 5
+      }
+    ],
+    "type": "patient",
+    "etat": 0
+  },
+  {
+    "nom": "aaron",
+    "prenom": "burr",
+    "age": 60,
+    "symptomeLst": [
+      {
+        "nom": "toux",
+        "niveau": 1
+      },
+      {
+        "nom": "fievre",
+        "niveau": 2
+      },
+      {
+        "nom": "douleurs musculaires",
+        "niveau": 5
+      }
+    ],
+    "type": "patient",
+    "etat": 0
+  },
+  {
+    "nom": "burr",
+    "prenom": "alexander",
+    "age": 25,
+    "symptomeLst": [
+      {
+        "nom": "toux",
+        "niveau": 2
+      },
+      {
+        "nom": "fiebre",
+        "niveau": 3
+      },
+      {
+        "nom": "pain",
+        "niveau": 5
+      }
+    ],
+    "type": "patient",
+    "etat": 3.3333333333333335,
+    "sick": true
   }
 ]

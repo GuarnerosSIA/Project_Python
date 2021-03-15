@@ -1,0 +1,17 @@
+{
+  "nom": "Alex",
+  "prenom": "Ham",
+  "age": 25,
+  "symptomeLst": [
+    {
+      "nom": "toux",
+      "niveau": 1
+    },
+    {
+      "nom": "fiebre",
+      "niveau": 2
+    }
+  ],
+  "type": "patient",
+  "etat": 0
+}
