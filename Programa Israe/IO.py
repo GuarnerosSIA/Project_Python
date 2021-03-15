@@ -135,7 +135,6 @@ class IO:
     print(">> Le registre a été supprimé (The registry has been deleted)")
     self.personnel.loadJson()
     self.patients.loadJson()
-    print(">> Le registre a été chargé à partir d'un fichier JSON (The registry has been loaded from a JSON file)")
     print(">> L'effacement et la mise à jour du registre ont réussi (Erased and update of the registry has been successful)")
     self.read("all")
 

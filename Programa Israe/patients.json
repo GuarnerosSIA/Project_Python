@@ -20,5 +20,16 @@
     },
     "type": "patient",
     "etat": 1.0
+  },
+  {
+    "nom": "pierce",
+    "prenom": "marcus",
+    "age": 99,
+    "symptomes": {
+      "toux": 5,
+      "fiebre": 5
+    },
+    "type": "patient",
+    "etat": 5.0
   }
 ]

@@ -14,11 +14,9 @@ class Patient(Occupant):
   def __init__(self, _nom, _prenom, _age, _symptomes):
     super().__init__(_nom, _prenom, _age)
     self.symptomes = eval(_symptomes) # Dictionary creation
+    symptomeLst = Symptome(self.symptomes)
     self.type = 'patient' 
-    somme = 0
-    for key, value in self.symptomes.items():
-      somme += value
-    self.etat = somme / len(self.symptomes)
+    self.etat = symptomeLst.etat()
     print(self)
 
   def __repr__(self):

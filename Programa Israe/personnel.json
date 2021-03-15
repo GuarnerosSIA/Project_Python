@@ -1,23 +1,9 @@
 [
   {
-    "nom": "alexander",
-    "prenom": "hamilton",
-    "age": 45,
-    "role": "médecin",
-    "type": "personnel"
-  },
-  {
     "nom": "alejandro",
     "prenom": "sandoval",
     "age": 25,
     "role": "biom",
-    "type": "personnel"
-  },
-  {
-    "nom": "alexander",
-    "prenom": "hamilton",
-    "age": 45,
-    "role": "médecin",
     "type": "personnel"
   },
   {

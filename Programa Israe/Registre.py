@@ -9,7 +9,6 @@ class Registre:
     This class allows to manage the patient and staff register
     @author: Alejandro H.
   """
-
   # === CONSTRUCTOR ===
   def __init__(self, _chemin):
     """The path is use to find the File"""
@@ -100,7 +99,7 @@ class Registre:
     else:
       return '   - {0} {1} {2} ans, {3} ({0} {1} {2} years old, {3})'.format(x['nom'].upper(), x['prenom'].capitalize(), x['age'], x['role'])
 
-  # --- ERASE LST ---
+  # --- EREASE LST ---
   def dropLst(self):
     """Clear the registry list"""
     self.liste.clear()
