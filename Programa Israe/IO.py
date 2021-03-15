@@ -169,3 +169,7 @@ class IO:
     This method verifies if a string contains a number. Thus it can be used for verifying the suitability of a name or surname
     """
     return any(char.isdigit() for char in myString)
+
+  def loadRegistry(self):
+    self.personnel.loadJson()
+    self.patients.loadJson()

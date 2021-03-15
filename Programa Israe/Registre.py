@@ -119,5 +119,6 @@ class Registre:
     try:
       with open(self.chemin, 'r') as inf:
         self.liste = json.load(inf)
+        print("{} Registre précédent chargé (Previous registry loaded)".format(self.chemin))
     except IOError:
       print(">> Il n'y a pas de fichier précédent à charger (Ther is no previous file to load) !")

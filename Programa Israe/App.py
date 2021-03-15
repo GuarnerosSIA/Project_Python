@@ -1,6 +1,7 @@
 #! /usr/bin/env python3.6
 # -*- coding: utf-8 -*-
 from IO import *
+import sys
 io = IO()
 
 
@@ -29,6 +30,8 @@ print(">> test // 1 | 2")
 print(">> quit (exit)\n")
 print("###### En attente de commande (Awaiting order): ######")
 print("N'oubliez pas de vous séparer avec // (Do not forget to separate with //):")
+
+io.loadRegistry()
 
 while True:
   cmd = input(">> ")
@@ -63,7 +66,7 @@ while True:
 
   # --- Option QUIT ---
   elif cmdLst[0].lower() == "quit":
-    exit()
+    sys.exit()
 
   else:
     print(">> Commande incorrecte (Incorrect order)!")
