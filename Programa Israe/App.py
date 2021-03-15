@@ -14,24 +14,16 @@ io = IO()
 """
 
 
-
-print("###### Bienvenue dans l'interface de contrôle du registre hospitalier ######")
 print('###### (Welcome to the hospital registry control interface) ######\n')
-print("Commandes possibles (Possible actions) :")
-print(">> create // patient | personnel // nom // prénom // age // {'Symptome':5,'Symptome':3} | role")
+print("Possible actions: ")
 print(">> create // patient | personal // surname // name  // age // {'Symptom':5,'Symptom':3} | role")
-print(">> read // all | nom ")
 print(">> read // all | surname")
-print(">> update // nom | prenom | age // nom // valeur")
 print(">> update // surname | name | age // surname // value")
-print(">> delete // nom")
 print(">> delete // surname")
 print(">> test // 1 | 2")
 print(">> quit (exit)\n")
-print("###### En attente de commande (Awaiting order): ######")
-print("N'oubliez pas de vous séparer avec // (Do not forget to separate with //):")
-
-io.loadRegistry()
+print("###### Awaiting order: ######")
+print("Do not forget to separate with //:")
 
 while True:
   cmd = input(">> ")
@@ -69,5 +61,5 @@ while True:
     sys.exit()
 
   else:
-    print(">> Commande incorrecte (Incorrect order)!")
-    print(">> Réviser l'orthographe ou les // (Review spelling or the //)!")
+    print(">> Incorrect order!")
+    print(">> Review spelling or the '//' !")
