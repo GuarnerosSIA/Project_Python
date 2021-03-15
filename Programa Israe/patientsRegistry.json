@@ -1,0 +1,46 @@
+[
+  {
+    "__class__": "Patient",
+    "__module__": "Patient",
+    "nom": "alex",
+    "prenom": "hamilton",
+    "age": 25,
+    "symptomesLst": [
+      {
+        "__class__": "Symptome",
+        "__module__": "Symptome",
+        "nom": "a",
+        "niveau": 1
+      },
+      {
+        "__class__": "Symptome",
+        "__module__": "Symptome",
+        "nom": "b",
+        "niveau": 2
+      }
+    ],
+    "etat": 3
+  },
+  {
+    "__class__": "Patient",
+    "__module__": "Patient",
+    "nom": "alex",
+    "prenom": "hamilton",
+    "age": 25,
+    "symptomesLst": [
+      {
+        "__class__": "Symptome",
+        "__module__": "Symptome",
+        "nom": "a",
+        "niveau": 1
+      },
+      {
+        "__class__": "Symptome",
+        "__module__": "Symptome",
+        "nom": "b",
+        "niveau": 2
+      }
+    ],
+    "etat": 3
+  }
+]

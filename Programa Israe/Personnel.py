@@ -14,7 +14,6 @@ class Personnel(Occupant):
   def __init__(self, _nom, _prenom, _age, _role):
     super().__init__(_nom, _prenom, _age)
     self.role = _role
-    self.type = 'personnel'
     print(self)
 
   def __repr__(self):

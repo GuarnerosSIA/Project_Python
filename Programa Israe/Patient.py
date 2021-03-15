@@ -11,20 +11,22 @@ class Patient(Occupant):
   """
 
   # CONSTRUCTOR
-  def __init__(self, _nom, _prenom, _age, _symptomes):
-    super().__init__(_nom, _prenom, _age)
-    self.symptomes = eval(_symptomes) # Dictionary creation
-    symptomeLst = Symptome(self.symptomes)
-    self.type = 'patient' 
-    self.etat = symptomeLst.etat()
-    print(self)
+  def __init__(self, nom, prenom, age, symptomesLst, etat=0):
+    super().__init__(nom, prenom, age)
+    self.symptomesLst = symptomesLst
+    self.etat = self.competat()
 
   def __repr__(self):
     return '{self.__class__.__name__}({self.nom}, {self.prenom}, {self.age}, {self.etat})'.format(self=self)
 
   def __str__(self):
-    return '>> Le patient {0} {1} {2} (sévérité : {3}) à été ajouté ! (Patient {0} {1} {2} (severity: {3}) has been added!)'.format(self.nom.upper(), self.prenom.capitalize(), self.age, self.etat)
+    return '>> Patient {} {} {} (severity: {}) has been added!'.format(self.nom.upper(), self.prenom.capitalize(), self.age, self.etat)
 
+  def competat(self):
+    some = 0
+    for item in self.symptomesLst:
+      some += item.niveau
+    return some
   # --- IS SICK ---
   def is_sick(self):
     """Return True if the mean average severity of the symptomes is greater or equal than 3"""

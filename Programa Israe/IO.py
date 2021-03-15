@@ -17,8 +17,8 @@ class IO:
     """
     Create 2 registers for saving patients and personal
     """
-    self.patients = Registre("patients.json")
-    self.personnel = Registre("personnel.json")
+    self.patients = Registre("patientsRegistry.json")
+    self.personnel = Registre("personnelRegistry.json")
 
   # --- CREATE OCCUPANT---
   def create(self, cmdLst):
@@ -26,45 +26,25 @@ class IO:
     Allows the creation of new Occupants. Either Personal or Patient. 
     The reason for using different if else statements, is to provide a better explanation of the possible issues
     """
-    # Verify if was use a patient or a personal in the input string
-    if cmdLst[1].lower() in ("patient", "personnel"):
-      if (not self.hasNumbers(cmdLst[2])) and (not self.hasNumbers(cmdLst[3])):#Check if name and surname are valid
-        if self.ifInt(cmdLst[4]):#Verify if the age was provided
-          if cmdLst[1].lower() == "patient":
-            try:
-              sympLst = eval(cmdLst[5])#Verify if the last input was a dictionary
-            except:
-              print(">> La liste des symptomes doit être de type dictionnaire (The list of symptoms must be dictionary type without spaces) !")
-              print(">> exemple (example): {'Mal de crâne':1,'toux':5}\n")
-            else:
-              if type(sympLst) == dict:#Verify if a dictionary was created
-                ok = True
-                for sever in sympLst.values():#Check if all the values in the dictionary are numbers between 1-5
-                  if not self.ifInt(sever) or not 1 <= sever <= 5:
-                    ok = False
-                if ok:
-                  if len(sympLst) > 0:
-                    self.patients.add(Patient(cmdLst[2].lower(), cmdLst[3].lower(), int(cmdLst[4]), cmdLst[5]))
-                    self.patients.saveJson() #save the created patient
-                  else:#Verify if the dictionary is not an empty one
-                    print(">> Le patient doit avoir au moins un symptôme pour être admis à l'hôpital (The patient must have at least one symptom to be admitted to the hospital)!\n")
-                else:
-                  print(">> La gravité est classée de 1 à 5 dans des intervalles entiers")
-                  print(">> The severity is categorized from 1 up to 5 in integer intervals \n")
-              else:
-                print(">> La liste des symptomes doit être de type dictionnaire (The list of symptoms must be dictionary type) !")
-                print(">> exemple (example): {'Mal de crâne':1,'toux':5}\n")
-          elif cmdLst[1].lower() == "personnel" and (not self.hasNumbers(cmdLst[5])): #Verify if the role contains a number
-            self.personnel.add(Personnel(cmdLst[2].lower(), cmdLst[3].lower(), int(cmdLst[4]), cmdLst[5].lower()))
-            self.personnel.saveJson() #Save the created personal
-          else:
-            print(">> Le rôle ne doit contenir aucun nombre (The role mustn't contain any number)!\n")
-        else:
-          print(">> L'age doit être une valeur numérique (Age must be a numeric value)!\n")
-      else:
-        print(">> Le nom et le prénom ne sont pas autorisés à avoir des numéros (Name and surname are not allowed to have numbers)!\n")
-    else:
-      print(">>  !Le deuxième paramètre doit être : patient ou personnel (The second parameter must be: patient or personal)\n")
+    # Create a list for 
+    symptomeLst = []
+    nSymptomes = int(cmdLst[5])
+    for i in range(nSymptomes):
+      symptomeNom = input(">>Symptom: ")
+      symptomeSeverity = int(input(">>Severity: "))
+      symptomeLst.append(Symptome(symptomeNom, symptomeSeverity))
+    nom = cmdLst[2]
+    prenom = cmdLst[3]
+    age = int(cmdLst[4])
+    newOccupant = [Patient(nom,prenom,age,symptomeLst), Patient(nom,prenom,age,symptomeLst)]
+    with open("patientsRegistry.json", 'w') as outf:
+      json.dump(newOccupant, outf,default=self.convert_to_dict, ensure_ascii=False, indent=2)
+    print(newOccupant)
+    print(type(newOccupant[0]))
+    with open("patientsRegistry.json", 'r') as inf:
+      _var = json.load(inf,object_hook=self.dict_to_obj)
+    print(_var)
+    print(type(_var[0]))
 
   # --- READ ---
   def read(self, _param):
@@ -173,3 +153,41 @@ class IO:
   def loadRegistry(self):
     self.personnel.loadJson()
     self.patients.loadJson()
+  
+  def convert_to_dict(self,obj):
+    """
+    A function takes in a custom object and returns a dictionary representation of the object.
+    This dict representation includes meta data such as the object's module and class names.
+    """
+    #  Populate the dictionary with object meta data 
+    obj_dict = {
+      "__class__": obj.__class__.__name__,
+      "__module__": obj.__module__
+    }
+    #  Populate the dictionary with object properties
+    obj_dict.update(obj.__dict__)
+    return obj_dict
+  def dict_to_obj(self,our_dict):
+    """
+    Function that takes in a dict and returns a custom object associated with the dict.
+    This function makes use of the "__module__" and "__class__" metadata in the dictionary
+    to know which object type to create.
+    """
+    if "__class__" in our_dict:
+        # Pop ensures we remove metadata from the dict to leave only the instance arguments
+        class_name = our_dict.pop("__class__")
+
+        # Get the module name from the dict and import it
+        module_name = our_dict.pop("__module__")
+
+        # We use the built in __import__ function since the module name is not yet known at runtime
+        module = __import__(module_name)
+
+        # Get the class from the module
+        class_ = getattr(module,class_name)
+
+        # Use dictionary unpacking to initialize the object
+        obj = class_(**our_dict)
+    else:
+        obj = our_dict
+    return obj
