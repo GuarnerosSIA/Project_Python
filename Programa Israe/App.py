@@ -12,21 +12,31 @@ io = IO()
   @author: Alejandro H.
 """
 
+
+
 print("###### Bienvenue dans l'interface de contrôle du registre hospitalier ######")
 print('###### (Welcome to the hospital registry control interface) ######\n')
 print("Commandes possibles (Possible actions) :")
-print(">> create <patient (patient) | personnel (personal)> <nom (surname)> <prénom (name) > <age (age)> <{'symp1':5,'symp2':3} | role (role) >")
-print(">> read <all (all) | nom (surname)>")
-print(">> update <nom (surname) | prenom (name) | age> <nom (surname) > <valeur (value)>")
-print(">> delete <nom (surname) >")
+print(">> create // patient | personnel // nom // prénom // age // {'Symptome':5,'Symptome':3} | role")
+print(">> create // patient | personal // surname // name  // age // {'Symptom':5,'Symptom':3} | role")
+print(">> read // all | nom ")
+print(">> read // all | surname")
+print(">> update // nom | prenom | age // nom // valeur")
+print(">> update // surname | name | age // surname // value")
+print(">> delete // nom")
+print(">> delete // surname")
+print(">> test // 1 | 2")
 print(">> quit (exit)\n")
 print("###### En attente de commande (Awaiting order): ######")
+print("N'oubliez pas de vous séparer avec // (Do not forget to separate with //):")
 
 while True:
   cmd = input(">> ")
   cmd = cmd.strip()
-  cmdLst = cmd.split(" ")
+  cmdLst = cmd.split("//")
   size = len(cmdLst)
+  for i in range(size):
+    cmdLst[i] = cmdLst[i].strip().lower()
 
   # --- Option CREATE ---
   if cmdLst[0].lower() == "create" and size == 6:
@@ -57,4 +67,4 @@ while True:
 
   else:
     print(">> Commande incorrecte (Incorrect order)!")
-    print(">> Réviser l'orthographe ou les doubles espaces (Review spelling or double spaces)!")
+    print(">> Réviser l'orthographe ou les // (Review spelling or the //)!")

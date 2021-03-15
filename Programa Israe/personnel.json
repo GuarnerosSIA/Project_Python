@@ -7,17 +7,31 @@
     "type": "personnel"
   },
   {
-    "nom": "kenny",
-    "prenom": "morales",
-    "age": 30,
-    "role": "economist",
+    "nom": "alejandro",
+    "prenom": "sandoval",
+    "age": 25,
+    "role": "biom",
     "type": "personnel"
   },
   {
-    "nom": "rosalía",
-    "prenom": "smith",
-    "age": 30,
-    "role": "ingénieure",
+    "nom": "alexander",
+    "prenom": "hamilton",
+    "age": 45,
+    "role": "médecin",
+    "type": "personnel"
+  },
+  {
+    "nom": "magos",
+    "prenom": "patricio",
+    "age": 23,
+    "role": "biome",
+    "type": "personnel"
+  },
+  {
+    "nom": "jackson",
+    "prenom": "michael",
+    "age": 23,
+    "role": "biome",
     "type": "personnel"
   }
 ]

@@ -23,37 +23,37 @@ class Registre:
 
   # --- UPDATE ---
   def update(self, _param, _nom, _value):
-    """Allows the modification of the Occupant name or age"""
+    """Allows the modification of the Occupant name, surname or age"""
     find = False
     tmpLst = []
     if len(self.liste) > 0:
       for x in self.liste:
+        #In order to review the updated information. It is shown the previous and current Occupant
         if x['nom'] == _nom:
-          print('>> Ancienne données (Old information):')
+          print('>> Information précédente (Previous information):')
           print(self.printOccup(x))
           x[_param] = _value
-          print('>> Mise à jour (Update) :')
+          print('>> Informations actuelles (Current information) :')
           print(self.printOccup(x))
           find = True
         tmpLst.append(x)
       self.liste = tmpLst
       self.saveJson()
-      print()
       return find
 
   # --- REMOVE ---
   def remove(self, _param):
     """Removes an Occupant from the registry"""
-    tmpLst = []
+    tmpLst = [] #Create a new list to removed the occupant
     find = False
     for x in self.liste:
       if x['nom'] == _param:
-        print('>> {0} {1} {2} à été supprimé du registre ! ({0} {1} {2} has been deleted from registry)'.format(x['nom'].upper(), x['prenom'].capitalize(), x['age']))
+        print('>> {0} {1} {2} a été effacé du registre ! ({0} {1} {2} has been erased from the registry)'.format(x['nom'].upper(), x['prenom'].capitalize(), x['age']))
         find = True
       else:
-        tmpLst.append(x)
-    self.liste = tmpLst
-    self.saveJson()
+        tmpLst.append(x)# Add one by the the new list
+    self.liste = tmpLst # Update the list
+    self.saveJson() # Actualized the registry
     return find
 
   # --- SORT ---
@@ -61,26 +61,26 @@ class Registre:
     """
       Returns for 'all'
          either the list of patients classified by medical emergency
-         either the staff list (depending on the type of dictionary)
+         either the staff list (depending on the type of dictionary). Just for demonstrative purposes
        otherwise for '<name>'
-         the patient or staff member corresponding to the name
+         the patient member corresponding to the name
     """
     find = False
     if len(self.liste) > 0:
       if _param == 'all':
-        if self.liste[0]['type'] == 'patient':
-          print(">> Patients ordonnées par urgence médicale (Patients odered by medical emergency):")
+        if self.liste[0]['type'] == 'patient':#Review all the patients
+          print(">> Ordre actuel des patients par risque médical (Current patients order by medical risk):")
           newLst = {}
           for x in self.liste:
             newLst[self.printOccup(x)] = x['etat']
-          for key in sorted(newLst, key=newLst.get, reverse=True):
+          for key in sorted(newLst, key=newLst.get, reverse=True):#order all the patients by their severity
             print(key)
-        else:
-          print(">> Liste du personnel médical (List of medical personal):")
+        else:#This action is just in case the update proces failed, then the list of personal is shown
+          print(">> La liste des personnels est la suivante (The list of personal is the following):")
           for x in self.liste:
             print(self.printOccup(x))
         print()
-      else:
+      else:#This part is use implemented in for seeking a specific patient
         for x in self.liste:
           if x['nom'] == _param:
             print(self.printOccup(x), "\n")
@@ -100,10 +100,10 @@ class Registre:
     else:
       return '   - {0} {1} {2} ans, {3} ({0} {1} {2} years old, {3})'.format(x['nom'].upper(), x['prenom'].capitalize(), x['age'], x['role'])
 
-  # --- DROP LST ---
+  # --- ERASE LST ---
   def dropLst(self):
     """Clear the registry list"""
-    self.liste = []
+    self.liste.clear()
 
   # --- SAVE JSON ---
   def saveJson(self):

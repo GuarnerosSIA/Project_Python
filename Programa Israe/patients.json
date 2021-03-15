@@ -1,46 +1,24 @@
 [
   {
-    "nom": "Elizabeth",
-    "prenom": "ricart",
-    "age": 20,
+    "nom": "burr",
+    "prenom": "roxxane",
+    "age": 23,
     "symptomes": {
-      "dolre": 5,
-      "toux": 5
+      "toux": 4,
+      "fiebre": 2
     },
     "type": "patient",
-    "etat": 5.0
+    "etat": 3.0
   },
   {
-    "nom": "sandoval",
-    "prenom": "adan",
-    "age": 85,
+    "nom": "madison",
+    "prenom": "jefferson",
+    "age": 23,
     "symptomes": {
-      "dolre": 1,
-      "toux": 3
-    },
-    "type": "patient",
-    "etat": 2.0
-  },
-  {
-    "nom": "aaron",
-    "prenom": "burr",
-    "age": 12,
-    "symptomes": {
-      "Male": 1,
-      "toux": 1
+      "toux": 1,
+      "male de cr�ne": 1
     },
     "type": "patient",
     "etat": 1.0
-  },
-  {
-    "nom": "abril",
-    "prenom": "diaz",
-    "age": 25,
-    "symptomes": {
-      "fiebre": 2,
-      "toux": 3
-    },
-    "type": "patient",
-    "etat": 2.5
   }
 ]

@@ -1,7 +1,7 @@
 #! /usr/bin/env python3.6
 # -*- coding: utf-8 -*-
 from Occupant import *
-
+from Symptome import *
 
 class Patient(Occupant):
   """
