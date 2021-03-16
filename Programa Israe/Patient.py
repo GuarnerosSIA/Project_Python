@@ -14,15 +14,19 @@ class Patient(Occupant):
   def __init__(self, nom, prenom, age, symptomesLst, etat=0):
     super().__init__(nom, prenom, age)
     self.symptomesLst = symptomesLst
-    self.etat = self.competat()
+    self.etat = self.comp_etat()
+    print(self)
 
   def __repr__(self):
     return '{self.__class__.__name__}({self.nom}, {self.prenom}, {self.age}, {self.etat})'.format(self=self)
 
   def __str__(self):
     return '>> Patient {} {} {} (severity: {}) has been added!'.format(self.nom.upper(), self.prenom.capitalize(), self.age, self.etat)
-
-  def competat(self):
+  # Verify Equality
+  def __eq__(self, other):
+    return self.nom == other.nom
+  
+  def comp_etat(self):
     some = 0
     for item in self.symptomesLst:
       some += item.niveau

@@ -27,21 +27,39 @@ class IO:
     The reason for using different if else statements, is to provide a better explanation of the possible issues
     """
     # Create a list for 
-    symptomeLst = []
+    occupantType = cmdLst[1]
+    nom = cmdLst[2]
+    prenom = cmdLst[3]
+    age = int(cmdLst[4])
+    if(occupantType in ('personal','patient')):
+      if (not self.hasNumbers(nom)) and (not self.hasNumbers(prenom)):
+        try:
+          age = int(cmdLst[4])
+        except:
+          print('The age has to be a numeric value')
+        if (occupantType == 'personal'):
+          
+        else:
+          fffff
+      else:
+        print('Name and surname have to be non numeric strings')
+    else:
+      print('Please insert personal or patient')
+
+    """
     nSymptomes = int(cmdLst[5])
     for i in range(nSymptomes):
       symptomeNom = input(">>Symptom: ")
       symptomeSeverity = int(input(">>Severity: "))
       symptomeLst.append(Symptome(symptomeNom, symptomeSeverity))
-    nom = cmdLst[2]
-    prenom = cmdLst[3]
-    age = int(cmdLst[4])
-    newOccupant = [Patient(nom,prenom,age,symptomeLst), Patient(nom,prenom,age,symptomeLst)]
-    with open("patientsRegistry.json", 'w') as outf:
+    """
+    
+    newOccupant = [Personnel(nom,prenom,age,cmdLst[5]), Personnel(nom,prenom,age,cmdLst[5])]
+    with open("personnelRegistry.json", 'w') as outf:
       json.dump(newOccupant, outf,default=self.convert_to_dict, ensure_ascii=False, indent=2)
     print(newOccupant)
     print(type(newOccupant[0]))
-    with open("patientsRegistry.json", 'r') as inf:
+    with open("personnelRegistry.json", 'r') as inf:
       _var = json.load(inf,object_hook=self.dict_to_obj)
     print(_var)
     print(type(_var[0]))
@@ -179,13 +197,13 @@ class IO:
 
         # Get the module name from the dict and import it
         module_name = our_dict.pop("__module__")
-
+        
         # We use the built in __import__ function since the module name is not yet known at runtime
         module = __import__(module_name)
-
+        
         # Get the class from the module
         class_ = getattr(module,class_name)
-
+        
         # Use dictionary unpacking to initialize the object
         obj = class_(**our_dict)
     else:

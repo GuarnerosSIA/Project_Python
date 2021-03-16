@@ -2,8 +2,8 @@
   {
     "__class__": "Patient",
     "__module__": "Patient",
-    "nom": "alex",
-    "prenom": "hamilton",
+    "nom": "burr",
+    "prenom": "alexander",
     "age": 25,
     "symptomesLst": [
       {
@@ -24,8 +24,8 @@
   {
     "__class__": "Patient",
     "__module__": "Patient",
-    "nom": "alex",
-    "prenom": "hamilton",
+    "nom": "burr",
+    "prenom": "alexander",
     "age": 25,
     "symptomesLst": [
       {
