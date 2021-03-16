@@ -29,12 +29,13 @@ class Registre:
     if len(self.liste) > 0:
       for x in self.liste:
         #In order to review the updated information. It is shown the previous and current Occupant
-        if x.nom == _nom:
+        if x.nom.lower() == _nom.lower():
           print('>> Previous information:')
           print(x)
           x.updateElement(_param, _value)
           print('>> Current information:')
           print(x)
+          print()
           find = True
         tmpLst.append(x)
       self.liste = tmpLst
@@ -47,7 +48,7 @@ class Registre:
     tmpLst = [] #Create a new list to removed the occupant
     find = False
     for x in self.liste:
-      if x.nom == _param:
+      if x.nom.lower() == _param.lower():
         print('>> {} {} {} has been erased from the registry'.format(x.nom.upper(), x.prenom.capitalize(), x.age))
         find = True
       else:
@@ -106,9 +107,9 @@ class Registre:
     try:
       with open(self.chemin, 'r') as inf:
         self.liste = json.load(inf,object_hook=self.dict_to_obj)
-        print("{} Previous registry loaded".format(self.chemin))
+        print(">> The registry with name {} has been succesfully loaded".format(self.chemin))
     except IOError:
-      print(">> There is no previous file to load !")
+      print(">> There is no file with name {} please try again!".format(self.chemin))
   
   def convert_to_dict(self,obj):
     """

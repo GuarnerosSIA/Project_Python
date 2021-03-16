@@ -2,9 +2,33 @@
   {
     "__class__": "Personnel",
     "__module__": "Personnel",
-    "nom": "Alexander",
-    "prenom": "Hamilton",
-    "age": 45,
-    "role": "médecin"
+    "nom": "perez",
+    "prenom": "kenny",
+    "age": "25",
+    "role": "economist"
+  },
+  {
+    "__class__": "Personnel",
+    "__module__": "Personnel",
+    "nom": "guarneros",
+    "prenom": "mayitzia",
+    "age": 3,
+    "role": "cardiologist"
+  },
+  {
+    "__class__": "Personnel",
+    "__module__": "Personnel",
+    "nom": "martell",
+    "prenom": "oberyn",
+    "age": "15",
+    "role": "mechanic"
+  },
+  {
+    "__class__": "Personnel",
+    "__module__": "Personnel",
+    "nom": "noone",
+    "prenom": "arya",
+    "age": "15",
+    "role": "dermatologist"
   }
 ]

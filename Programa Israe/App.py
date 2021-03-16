@@ -13,10 +13,16 @@ io = IO()
   @author: Alejandro H.
 """
 
+print("### A previous file is beeing loaded ###")
+print("#######################################")
+io.patients.loadJson()
+io.personnel.loadJson()
+print("#######################################")
+print("### load complete ###")
 
 print('###### (Welcome to the hospital registry control interface) ######\n')
 print("Possible actions: ")
-print(">> create // patient | personal // surname // name  // age // {'Symptom':5,'Symptom':3} | role")
+print(">> create // patient | personal // surname // name  // age // numberOfSymptomes | role")
 print(">> read // all | all-personal | surname")
 print(">> update // surname | name | age // surname // value")
 print(">> delete // surname")

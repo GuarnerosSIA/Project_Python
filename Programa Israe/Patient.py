@@ -15,13 +15,16 @@ class Patient(Occupant):
     super().__init__(nom, prenom, age)
     self.symptomesLst = symptomesLst
     self.etat = self.comp_etat()
-    print(self)
+    print('>> Patient {} {} {} (severity: {}) has been added!'.format(self.nom.upper(), self.prenom.capitalize(), self.age, self.etat))
 
   def __repr__(self):
     return '{self.__class__.__name__}({self.nom}, {self.prenom}, {self.age}, {self.etat})'.format(self=self)
 
   def __str__(self):
-    return '>> Patient {} {} {} (severity: {}) has been added!'.format(self.nom.upper(), self.prenom.capitalize(), self.age, self.etat)
+    myStr = '- {} {} {} (severity: {})'.format(self.nom.upper(), self.prenom.capitalize(), self.age, self.etat)
+    if self.is_sick():
+      myStr += "\n\t The patient is sick, be careful"
+    return myStr
   # Verify Equality
   def __eq__(self, other):
     return self.nom == other.nom

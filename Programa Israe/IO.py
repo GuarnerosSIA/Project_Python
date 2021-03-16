@@ -34,20 +34,27 @@ class IO:
                       nom = cmdLst[2]
                       prenom = cmdLst[3]
                       age = cmdLst[4]
-                      if self.ifInt(cmdLst[5]):
+                      if self.ifInt(cmdLst[5]) and (int(cmdLst[5])>0):
                           symptomeLst = []
                           for s in range(int(cmdLst[5])):
-                              symptomeNom = input(">>Symptom: ")
-                              symptomeSeverity = int(input(">>Severity: "))
-                              if not self.hasNumbers(symptomeNom):
-                                  if self.ifInt(symptomeSeverity):
-                                      symptomeLst.append(Symptome(symptomeNom, symptomeSeverity))
+                              Flag = True
+                              while Flag:
+                                  symptomeNom = input(">>Symptom: ")
+                                  symptomeSeverity = input(">>Severity: ")
+                                  if not self.hasNumbers(symptomeNom):
+                                      if self.ifInt(symptomeSeverity):
+                                          if 1 <= int(symptomeSeverity) <= 5:
+                                              symptomeLst.append(Symptome(symptomeNom, int(symptomeSeverity)))
+                                              Flag = False
+                                          else:
+                                              print('The severity integer must be between 1 and 5!!')
+                                              print('Please try again')
+                                      else:
+                                          print('The severity of a symptom must be an integer!!')
+                                          print('Please try again')
                                   else:
-                                      print('The severity of a symptom must be an integer!! ')
-                                      print('The severity was set to 1')
-                              else:
-                                  print('The name of a symptom cannot contain numbers !! ')
-                                  print('The symptome was set as Unkmnow')
+                                      print('The name of a symptom cannot contain numbers !! ')
+                                      print('Please try again')
                           newOccupant = Patient(nom,prenom,age,symptomeLst)
                           self.patients.add(newOccupant)
                       else:
@@ -96,6 +103,7 @@ class IO:
               print(">> {} Is not in the patient registry!\n".format(cmdLst[2].upper()))
             if not self.personnel.update(cmdLst[1].lower(), cmdLst[2].lower(), var):
               print(">> {} Is not in the personnel registry!\n".format(cmdLst[2].upper()))
+              print(">> The Following is the complete list of personal")
               self.personnel.sort('all-personal') #For displaying the personal list (To show how the personal can be modifed)
           else:
             print(">> Age must be a numeric value!\n")
@@ -106,6 +114,7 @@ class IO:
               print(">> {} Is not in the patient registry!\n".format(cmdLst[2].upper()))
             if not self.personnel.update(cmdLst[1].lower(), cmdLst[2].lower(), var):
               print(">> {} Is not in the personnel registry!\n".format(cmdLst[2].upper()))
+              print(">> The Following is the complete list of personal")
               self.personnel.sort('all-personal') #For displaying the personal list (To show how the personal can be modifed)
           else:
             print(">> Name mustn't be a numeric value!\n")
@@ -132,7 +141,7 @@ class IO:
     Writes both Occupants into the list and JSON registry
     Erase the list and then recover the data from the JSON file
     """
-    self.create(["create", "patient", "Aaron", "Burr", 60, '1'])
+    self.create(["create", "patient", "Aaron", "Burr", 60, '2'])
     self.create(["create", "personal", "Alexander", "Hamilton", 45, "médecin"])
     self.personnel.dropLst()
     self.patients.dropLst()
@@ -154,8 +163,8 @@ class IO:
     self.personnel.loadJson()
     self.patients.loadJson()
     self.read("all-personal")
-    self.personnel.update("age", "Alexander", 47)
-    self.delete("Alexander")
+    self.personnel.update("age", "Hamilton", 47)
+    self.delete("Hamilton")
     self.read("all")
   
   # --- IF INT ---
