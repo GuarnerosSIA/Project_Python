@@ -1,1 +1,23 @@
-[]
+[
+  {
+    "nom": "alejandro",
+    "prenom": "sandoval",
+    "age": 25,
+    "role": "biom",
+    "type": "personnel"
+  },
+  {
+    "nom": "magos",
+    "prenom": "patricio",
+    "age": 23,
+    "role": "biome",
+    "type": "personnel"
+  },
+  {
+    "nom": "jackson",
+    "prenom": "michael",
+    "age": 23,
+    "role": "biome",
+    "type": "personnel"
+  }
+]

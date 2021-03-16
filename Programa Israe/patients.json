@@ -1,13 +1,35 @@
 [
   {
-    "nom": "travis",
-    "prenom": "john",
-    "age": 25,
+    "nom": "burr",
+    "prenom": "roxxane",
+    "age": 23,
     "symptomes": {
-      "toux": 2,
-      "fievre": 4
+      "toux": 4,
+      "fiebre": 2
     },
     "type": "patient",
     "etat": 3.0
+  },
+  {
+    "nom": "madison",
+    "prenom": "jefferson",
+    "age": 23,
+    "symptomes": {
+      "toux": 1,
+      "male de cr�ne": 1
+    },
+    "type": "patient",
+    "etat": 1.0
+  },
+  {
+    "nom": "pierce",
+    "prenom": "marcus",
+    "age": 99,
+    "symptomes": {
+      "toux": 5,
+      "fiebre": 5
+    },
+    "type": "patient",
+    "etat": 5.0
   }
 ]

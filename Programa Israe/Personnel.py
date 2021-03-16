@@ -6,7 +6,7 @@ from Occupant import *
 class Personnel(Occupant):
   """
     CLASS PERSONNEL
-    Thise class inherits from Occupant class
+    These class inherits from Occupant class
     @author: Alejandro H.    
   """
 
