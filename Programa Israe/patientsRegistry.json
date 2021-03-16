@@ -2,45 +2,17 @@
   {
     "__class__": "Patient",
     "__module__": "Patient",
-    "nom": "burr",
-    "prenom": "alexander",
-    "age": 25,
+    "nom": "Aaron",
+    "prenom": "Burr",
+    "age": 60,
     "symptomesLst": [
       {
         "__class__": "Symptome",
         "__module__": "Symptome",
         "nom": "a",
-        "niveau": 1
-      },
-      {
-        "__class__": "Symptome",
-        "__module__": "Symptome",
-        "nom": "b",
-        "niveau": 2
+        "niveau": 5
       }
     ],
-    "etat": 3
-  },
-  {
-    "__class__": "Patient",
-    "__module__": "Patient",
-    "nom": "burr",
-    "prenom": "alexander",
-    "age": 25,
-    "symptomesLst": [
-      {
-        "__class__": "Symptome",
-        "__module__": "Symptome",
-        "nom": "a",
-        "niveau": 1
-      },
-      {
-        "__class__": "Symptome",
-        "__module__": "Symptome",
-        "nom": "b",
-        "niveau": 2
-      }
-    ],
-    "etat": 3
+    "etat": 5.0
   }
 ]

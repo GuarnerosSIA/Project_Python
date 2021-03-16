@@ -30,7 +30,7 @@ class Patient(Occupant):
     some = 0
     for item in self.symptomesLst:
       some += item.niveau
-    return some
+    return some/len(self.symptomesLst)
   # --- IS SICK ---
   def is_sick(self):
     """Return True if the mean average severity of the symptomes is greater or equal than 3"""

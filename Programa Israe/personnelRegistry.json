@@ -2,17 +2,9 @@
   {
     "__class__": "Personnel",
     "__module__": "Personnel",
-    "nom": "burr",
-    "prenom": "alexander",
-    "age": 25,
-    "role": "inquisitor"
-  },
-  {
-    "__class__": "Personnel",
-    "__module__": "Personnel",
-    "nom": "burr",
-    "prenom": "alexander",
-    "age": 25,
-    "role": "inquisitor"
+    "nom": "Alexander",
+    "prenom": "Hamilton",
+    "age": 45,
+    "role": "médecin"
   }
 ]
