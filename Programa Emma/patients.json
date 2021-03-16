@@ -1,13 +1,53 @@
 [
   {
-    "nom": "travis",
-    "prenom": "john",
-    "age": 25,
+    "nom": "emme",
+    "prenom": "arto",
+    "age": 24,
     "symptomes": {
-      "toux": 2,
-      "fievre": 4
+      "headhache": 4
     },
     "type": "patient",
-    "etat": 3.0
-  }
-]
+    "etat": 4.0,
+    "sick": true
+  },
+  {
+    "nom": "guarneros",
+    "prenom": "isra",
+    "age": 26,
+    "symptomes": {
+      "headhache": 2,
+      "fever": 5
+    },
+    "type": "patient",
+    "etat": 3.5,
+    "sick": true
+  },
+  {
+    "nom": "hanks",
+    "prenom": "tom",
+    "age": 49,
+    "symptomes": {
+      "toothache": 1
+    },
+    "type": "patient",
+    "etat": 1.0,
+    "sick": false
+  },
+  {
+    "nom": "pitt",
+    "prenom": "brad",
+    "age": 51,
+    "symptomes": {
+      "headhache": 1,
+      "stomachache": 3,
+      "fever": 3
+    },
+    "type": "patient",
+    "etat": 2.3333333333333335,
+    "sick": false
+  },
+  {
+    "nom": "ricart",
+    "prenom": "maya",
+    "age": 2,
+    "symptomes": 

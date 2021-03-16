@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "nom": "ricart",
+    "prenom": "ale",
+    "age": 27,
+    "role": "doctor",
+    "type": "personal"
+  }
+]
