@@ -74,5 +74,27 @@
       }
     ],
     "etat": 3.0
+  },
+  {
+    "__class__": "Patient",
+    "__module__": "Patient",
+    "nom": "arto",
+    "prenom": "emme",
+    "age": "26",
+    "symptomesLst": [
+      {
+        "__class__": "Symptome",
+        "__module__": "Symptome",
+        "nom": "cough",
+        "niveau": 2
+      },
+      {
+        "__class__": "Symptome",
+        "__module__": "Symptome",
+        "nom": "fever",
+        "niveau": 3
+      }
+    ],
+    "etat": 2.5
   }
 ]

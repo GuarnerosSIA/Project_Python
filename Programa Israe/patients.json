@@ -31,5 +31,16 @@
     },
     "type": "patient",
     "etat": 5.0
+  },
+  {
+    "nom": "arenas",
+    "prenom": "jose",
+    "age": 26,
+    "symptomes": {
+      "fever": 2,
+      "headhache": 3
+    },
+    "type": "patient",
+    "etat": 2.5
   }
 ]

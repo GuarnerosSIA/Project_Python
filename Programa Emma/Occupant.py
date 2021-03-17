@@ -11,3 +11,12 @@ class Occupant:
     self.nom = _nom
     self.prenom = _prenom
     self.age = _age
+
+
+  def updateElement(self, _param, _new_param):
+    if(_param == 'name'):
+      self.prenom = _new_param
+    elif _param == 'surname':
+      self.nom = _new_param
+    else:
+      self.age = _new_param
