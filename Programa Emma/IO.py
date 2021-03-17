@@ -48,7 +48,7 @@ class IO:
                                     print('The pain of a symptom must be an integer !! \n Please repeat')
                                 else:
                                   print('The name of a symptom must be a string !! \n Please repeat')
-                          newPatient = Patient(cmdLst[2].lower(), cmdLst[3].lower(), cmdLst[4], listSymptomes)
+                          newPatient = Patient(cmdLst[2].lower(), cmdLst[3].lower(), int(cmdLst[4]), listSymptomes)
                           self.patients.add(newPatient)
                           print()
                       else:
@@ -89,34 +89,34 @@ class IO:
   # Allows you to update the information of an occupant.
   def update(self, cmdLst):
     # Check for numbers in the <lastname> parameter
-    if not self.hasNumbers(cmdLst[2]) :
+    if (not self.hasNumbers(cmdLst[2])):
       var = cmdLst[3]
-      if cmdLst[1].lower() in ('nom', 'prenom', 'age'):
+      if cmdLst[1].lower() in ('name', 'lastname', 'age'):
         # if first paramater is <age>
         if cmdLst[1].lower() == 'age':
           # Verify for an integer in last parameter 
           if self.ifInt(var):
             var = int(var)
-            if not self.patients.update(cmdLst[1].lower(), cmdLst[2].lower(), var):
+            found = self.patients.update(cmdLst[1].lower(), cmdLst[2].lower(), var) 
+            if not found:
               print(">> Last name {} can't be found in patients register!\n".format(cmdLst[2].upper()))
-            if not self.personnel.update(cmdLst[1].lower(), cmdLst[2].lower(), var):
-              print(">> Last name {} can't be found in personal register!\n".format(cmdLst[2].upper()))
+            # if not self.personnel.update(cmdLst[1].lower(), cmdLst[2].lower(), var):
+            #   print(">> Last name {} can't be found in personal register!\n".format(cmdLst[2].upper()))
           # else check the input
           else:
             print(">> The age must be a numerical value !\n")
             return False
         else:
           # check for a string in the last parameter
-          if not self.hasNumbers(var):
+          if (not self.hasNumbers(var)):
             if not self.patients.update(cmdLst[1].lower(), cmdLst[2].lower(), var):
               print(">> Last name {} not found in patient register !\n".format(cmdLst[2].upper()))
-            if not self.personnel.update(cmdLst[1].lower(), cmdLst[2].lower(), var):
-              print(">> Last name {} not found in personal register !\n".format(cmdLst[2].upper()))
-
+            # if not self.personnel.update(cmdLst[1].lower(), cmdLst[2].lower(), var):
+            #   print(">> Last name {} not found in personal register !\n".format(cmdLst[2].upper()))
           else:
-            print(">> The age must be a numerical value !\n")
+            print(">> The name can't contain numbers !\n")
       else:
-        print(">> The second parameter must be : name, last name or age !\n")
+        print(">> The second parameter must be : name, lastname or age !\n")
     else:
       print(">> The name is incorrect !\n")
       

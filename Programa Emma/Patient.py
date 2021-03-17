@@ -27,7 +27,7 @@ class Patient(Occupant):
   def __str__(self):
       message = '>> Name: {} {}  Age:{}  Gravity:{} '.format(self.nom.upper(), self.prenom.capitalize(), self.age, self.gravity)
       if self.is_sick():
-          message += ' Patient is sick'
+          message += ' Patient is sick !!'
       return message
 
 

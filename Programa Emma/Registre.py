@@ -77,13 +77,13 @@ class Registre:
     if len(self.liste) > 0:
         # If the parameter of search is all
         if _param == 'all':
-          print(">> Patients ordered by medical emergency:")
+          print("\n>> Patients ordered by medical emergency:")
           newLst = {}
           for x in self.liste:
             newLst[str(x)] = x.gravity
           for key in sorted(newLst, key=newLst.get, reverse=True):
             print(key)  
-
+          print('\n')
         # For a specific patient in the register
         else:
             for x in self.liste:
@@ -119,17 +119,12 @@ class Registre:
     except IOError:
       print(">> File {} no exist.  Please try again!".format(self.chemin))
 
- 
-    """
-    This function takes in a custom object and returns a dictionary representation of the object.
-    This dict representation includes meta data such as the object's module and class names.
-    """
+  
+  
+  # A function takes in a custom object and returns a dictionary representation of the object.
+  # This dict representation includes meta data such as the object's module and class names.
   
   def convert_to_dict(self,obj):
-    """
-    A function takes in a custom object and returns a dictionary representation of the object.
-    This dict representation includes meta data such as the object's module and class names.
-    """
     #  Populate the dictionary with object meta data 
     obj_dict = {
       "__class__": obj.__class__.__name__,
@@ -139,12 +134,11 @@ class Registre:
     obj_dict.update(obj.__dict__)
     return obj_dict
   
+  
+  # Function that takes in a dict and returns a custom object associated with the dict.
+  # This function makes use of the "__module__" and "__class__" metadata in the dictionary
+  # to know which object type to create.
   def dict_to_obj(self,our_dict):
-    """
-    Function that takes in a dict and returns a custom object associated with the dict.
-    This function makes use of the "__module__" and "__class__" metadata in the dictionary
-    to know which object type to create.
-    """
     if "__class__" in our_dict:
         # Pop ensures we remove metadata from the dict to leave only the instance arguments
         class_name = our_dict.pop("__class__")
@@ -157,9 +151,14 @@ class Registre:
         
         # Get the class from the module
         class_ = getattr(module,class_name)
-        
+        # print("Im here")
+        # print(module_name)
+        # print(module)
+        # print(class_)
         # Use dictionary unpacking to initialize the object
         obj = class_(**our_dict)
+        # print(obj)
     else:
         obj = our_dict
+    print("Im here now")
     return obj
