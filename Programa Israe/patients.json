@@ -42,5 +42,27 @@
     },
     "type": "patient",
     "etat": 2.5
+  },
+  {
+    "__class__": "Patient",
+    "__module__": "Patient",
+    "nom": "ricart",
+    "prenom": "diana",
+    "age": 26,
+    "symptomes": [
+      {
+        "__class__": "Symptome",
+        "__module__": "Symptome",
+        "nom": "headache",
+        "niveau": 1
+      },
+      {
+        "__class__": "Symptome",
+        "__module__": "Symptome",
+        "nom": "dfer",
+        "niveau": 4
+      }
+    ],
+    "gravity": 2.5
   }
 ]
