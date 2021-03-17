@@ -14,38 +14,38 @@ class Patient(Occupant):
 
   # CONSTRUCTOR
   # param:  (name, last name, age, object symptom)
-  def __init__(self, _nom, _prenom, _age, _symptomes):
+  def __init__(self, _nom, _prenom, _age, _symptomes,gravity=0):
     super().__init__(_nom, _prenom, _age)
     self.symptomes = _symptomes
-    # self.symptomes = eval(_symptomes) # Dictionary creation
-    
-    self.type = 'patient' 
-    # somme = 0
-    # for var in self.symptomes.values():
-    #   somme +=  
-    self.gravedad = self.symptomes.gravity
-    self.etat = self.symptomes.numSymptomes / self.symptomes.gravity
-    self.sick = self.is_sick()
-    print(self)
-    
-    
-    
-    
+    self.gravity = self.comp_gravity()
+    print('>> Patient {} {} {} (severity: {}) has been added!'.format(self.nom.upper(), self.prenom.capitalize(), self.age, self.gravity))
     
 
   def __repr__(self):
-    return '{self.__class__.__name__}({self.nom}, {self.prenom}, {self.age}, {self.etat})'.format(self=self)
+    return '{self.__class__.__name__}({self.nom}, {self.prenom}, {self.age}, {self.gravity})'.format(self=self)
 
   def __str__(self):
-      cadena = '>> The patient {} {} {} (severity: {}) has been added! '.format(self.nom.upper(), self.prenom.capitalize(), self.age, self.etat)
-      if(self.sick):
-          cadena += ' Patient is sick'
-      return cadena 
+      message = '>> Name: {} {}  Age:{}  Gravity:{} '.format(self.nom.upper(), self.prenom.capitalize(), self.age, self.gravity)
+      if self.is_sick():
+          message += ' Patient is sick !!'
+      return message
+
+
+  # Verify Equality
+  def __eq__(self, other):
+    return self.nom == other.nom 
+
+  # Compute the level of gravity
+  def comp_gravity(self):
+    some = 0
+    for item in self.symptomes:
+      some += item.niveau
+    return some/len(self.symptomes)  
 
   # --- IS SICK ---
+  # Returns True if the patient has an average symptom score >= 3, otherwise False
   def is_sick(self):
-    # Returns True if the patient has an average symptom score >= 3, otherwise False
-    if self.etat >= 3:
+    if self.gravity >= 3:
       return True
     else:
       return False

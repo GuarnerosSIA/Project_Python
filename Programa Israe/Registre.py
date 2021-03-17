@@ -143,9 +143,9 @@ class Registre:
         
         # Get the class from the module
         class_ = getattr(module,class_name)
-        
         # Use dictionary unpacking to initialize the object
         obj = class_(**our_dict)
+
     else:
         obj = our_dict
     return obj

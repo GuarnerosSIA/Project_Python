@@ -14,8 +14,8 @@ class IO:
   def __init__(self):
     self.patients = Registre("patients.json")
     self.personnel = Registre("personnel.json")
-    self.patients.loadJson()
-    self.personnel.loadJson()
+    # self.patients.loadJson()
+    # self.personnel.loadJson()
 
 # --- CREATE ---
   def create(self, cmdLst):
@@ -28,111 +28,102 @@ class IO:
                   # if 'patient' 
                   if cmdLst[1].lower() == "patient":
                       # Needs to be an integer 
-                      if self.ifInt(cmdLst[5]):
-                          listSymptome = []
-                          for s in range(int(cmdLst[5])):
-                              print ('Enter the < name > < pain_level > of symptome', s + 1)
-                              name, pain = input('>> ').split()
-                              if type(name) == str: 
-                                  listSymptome.append(name)
+                      if self.ifInt(cmdLst[5]) and (int(cmdLst[5]) > 0):
+                          listSymptomes = []
+                          for s in range(int(cmdLst[5]) ):
+                              # Check for the symptomes
+                              hasSymptome = True
+                              while hasSymptome:
+                                print ('Enter the < name > < pain_level > of symptome', s + 1)
+                                name, pain = input('>> ').split()
+                                if not self.hasNumbers(name): 
                                   if self.ifInt(pain):
-                                      listSymptome.append(int(pain))
+                                          if 1 <= int(pain) <= 5:
+                                              listSymptomes.append(Symptome(name, int(pain)))
+                                              hasSymptome = False
+                                          else:
+                                              print('The pain must be an integer between 1 - 5 !!')
+                                              print('Please try again !!')
                                   else:
-                                      print('The pain of a symptom must be an integer!! ')
-                              else:
-                                  print('The name of a symptom must be a string!! ')
-                          objectSymptom =  Symptome(listSymptome)
-                          self.patients.add(Patient(cmdLst[2].lower(), cmdLst[3].lower(), int(cmdLst[4]), objectSymptom))
-                          self.patients.saveJson()
-            
+                                    print('The pain of a symptom must be an integer !! \n Please repeat')
+                                else:
+                                  print('The name of a symptom must be a string !! \n Please repeat')
+                          newPatient = Patient(cmdLst[2].lower(), cmdLst[3].lower(), int(cmdLst[4]), listSymptomes)
+                          self.patients.add(newPatient)
+                          print()
                       else:
                           print('The last argument needs to be numerical!')
-                    
-                    
-                      # #  Verify the dictionary
-                      # try:
-                      #     sympLst = eval(cmdLst[5])
-                      # except:
-                      #     print(">> The list of symptoms must be dictionary type without spaces !!")
-                      #     print(">> example: {'toux':1,'fievre':5}\n")
-                          
-                      # else:
-                      #     if type(sympLst) == dict:
-                      #         severity = True
-                      #         for sever in sympLst.values():
-                      #             if not self.ifInt(sever) or not 1 <= sever <= 5:
-                      #                 severity = False
-                      #         if severity:
-                      #             if len(sympLst) > 0:
-                      #                 self.patients.add(Patient(cmdLst[2].lower(), cmdLst[3].lower(), int(cmdLst[4]), cmdLst[5]))
-                      #                 self.patients.saveJson()
-                      #         else:
-                      #             print(">> The patient must have at least one symptom to be admitted!\n")
-                      #     else:
-                      #         print(">> The structure of the symptom list is incorrect (severity must be between 1 and 5)\n")
-                  
-                    
                   # If 'personal'
-                  elif cmdLst[1].lower() == "personal" and type(cmdLst[5]) == str:
-                      self.personnel.add(Personnel(cmdLst[2].lower(), cmdLst[3].lower(), int(cmdLst[4]),  cmdLst[5]))
-                      self.personnel.saveJson()
+                  elif cmdLst[1].lower() == "personal" and (not self.hasNumbers(cmdLst[5])):
+                      newPersonal = Personnel(cmdLst[2].lower(), cmdLst[3].lower(), int(cmdLst[4]), cmdLst[5]) 
+                      self.personnel.add(newPersonal)
                   else:
                       print(">> The role must be of type text !\n")
               else:
                   print(">> The age must be a numerical value !\n")
           else:
-              print(">> The first and last name must be of type text !\n")
+              print(">> The name and last name must be of type text !\n")
       else:
-          print(">>  The second parameter for <<create>> must be: patient or personal!\n")
+          print(">>  The first parameter for <<create>> must be: patient or personal!\n")
 
 
   # --- READ ---
   # Displays the list of ordered patients | personal
-  
   def read(self, _param, _type):
-      # Check for a string
-      if type(_param) == str:
+      # Check for a string in first argument
+      if (not self.hasNumbers(_param)):
           if (_type == 'patient'):
                x = _param.lower()
                if not self.patients.sort(x):
                    print(">> Patient register is empty!\n")
-          else:
+          elif(_type == 'personal'):
               x = _param.lower()
               if not self.personnel.sort(x):
                   print(">> Personal register is empty!\n")
+          else:
+            print('The last argument is < patient | personal >. \n Please repeat')
       else:
-          print(">> The second parameter is incorrect!\n")
+          print(">> The main parameter must be 'all' or <last name>. Please repeat!\n")
 
   # --- UPDATE ---
+  # Allows you to update the information of an occupant.
   def update(self, cmdLst):
-    # Allows you to update the information of an occupant.
-    if type(cmdLst[2]) == str:
+    # Check for numbers in the <lastname> parameter
+    if (not self.hasNumbers(cmdLst[2])):
       var = cmdLst[3]
-      if cmdLst[1].lower() in ('nom', 'prenom', 'age'):
+      if cmdLst[1].lower() in ('name', 'lastname', 'age'):
+        # if first paramater is <age>
         if cmdLst[1].lower() == 'age':
+          # Verify for an integer in last parameter 
           if self.ifInt(var):
             var = int(var)
+            found = self.patients.update(cmdLst[1].lower(), cmdLst[2].lower(), var) 
+            if not found:
+              print(">> Last name {} can't be found in patients register!\n".format(cmdLst[2].upper()))
+            # if not self.personnel.update(cmdLst[1].lower(), cmdLst[2].lower(), var):
+            #   print(">> Last name {} can't be found in personal register!\n".format(cmdLst[2].upper()))
+          # else check the input
           else:
             print(">> The age must be a numerical value !\n")
             return False
         else:
-          if type(var) == str:
+          # check for a string in the last parameter
+          if (not self.hasNumbers(var)):
             if not self.patients.update(cmdLst[1].lower(), cmdLst[2].lower(), var):
-              print(">> No {} in the patient register !\n".format(cmdLst[2].upper()))
-            if not self.personnel.update(cmdLst[1].lower(), cmdLst[2].lower(), var):
-              print(">> No {} in the personal register !\n".format(cmdLst[2].upper()))
-
+              print(">> Last name {} not found in patient register !\n".format(cmdLst[2].upper()))
+            # if not self.personnel.update(cmdLst[1].lower(), cmdLst[2].lower(), var):
+            #   print(">> Last name {} not found in personal register !\n".format(cmdLst[2].upper()))
           else:
-            print(">> The age must be a numerical value !\n")
+            print(">> The name can't contain numbers !\n")
       else:
-        print(">> The second parameter must be : name, last name or age !\n")
+        print(">> The second parameter must be : name, lastname or age !\n")
     else:
       print(">> The name is incorrect !\n")
       
   # --- DELETE ---
+  # Allows you to delete an occupant.
   def delete(self, _param):
-    # Allows you to delete an occupant.
-    if type(_param) == str:
+    if not self.hasNumbers(_param):
       if not self.patients.remove(_param.lower()) and not self.personnel.remove(_param.lower()):
         print(">> The occupant {} cannot be found !\n".format(_param.upper()))
     else:
@@ -178,4 +169,3 @@ class IO:
   def hasNumbers(self, myString):
     return any(char.isdigit() for char in myString)
   
-

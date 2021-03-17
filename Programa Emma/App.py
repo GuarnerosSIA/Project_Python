@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 import sys
 from IO import *
-from Registre import *
 
 io = IO()
 
@@ -18,21 +17,26 @@ def printIstruction():
     print(">> create < (patient) | (personal)> < lastname > < name > < age > < (numberOfSymptomes) | (role) >")
     # print(">> create < (patient) | (personal)> < lastname > < name > < age > < {'symp1':1,'symp2':5} | (role) >")
     print(">> read < (all) | lastname > < (patient) | (personal)")
-    print(">> update < (lastname) | (name) | (age) > < lastname > < value >")
+    print(">> update < (lastname) | (name) | (age) > < lastname > < new Value >")
     print(">> delete < lastname>")
     print(">> istructions (show instructions)")
     print(">> quit (exit)\n")
-    print("###### Awaiting for a command: ######")
+    
 
 
 # START PROGRAM
-
+io.patients.loadJson()
+io.personnel.loadJson()
 print('\n###### Welcome to the hospital registry control interface! ######\n')
 printIstruction()
+
 while True:
+  print("###### Awaiting for a command: ######")
   cmd = input(">> ")
   cmdLst = cmd.split()
   size = len(cmdLst)
+  for i in range(size):
+    cmdLst[i] = cmdLst[i].strip().lower()
 
   # --- CREATE ---
   if cmdLst[0].lower() == "create" and size == 6:
@@ -40,7 +44,7 @@ while True:
 
   # --- READ ---
   elif cmdLst[0].lower() == "read" and size == 3:
-    io.read(cmdLst[1],cmdLst[2])
+    io.read(cmdLst[1], cmdLst[2])
 
   # --- UPDATE ---
   elif cmdLst[0].lower() == "update" and size == 4:
