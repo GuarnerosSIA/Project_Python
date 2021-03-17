@@ -1,1 +1,94 @@
-[]
+[
+  {
+    "__class__": "Patient",
+    "__module__": "Patient",
+    "nom": "morales",
+    "prenom": "kenny",
+    "age": 26,
+    "symptomes": [
+      {
+        "__class__": "Symptome",
+        "__module__": "Symptome",
+        "nom": "stomachache",
+        "niveau": 4
+      },
+      {
+        "__class__": "Symptome",
+        "__module__": "Symptome",
+        "nom": "headhace",
+        "niveau": 2
+      }
+    ],
+    "gravity": 3.0
+  },
+  {
+    "__class__": "Patient",
+    "__module__": "Patient",
+    "nom": "arenas",
+    "prenom": "jose",
+    "age": 50,
+    "symptomes": [
+      {
+        "__class__": "Symptome",
+        "__module__": "Symptome",
+        "nom": "toothache",
+        "niveau": 2
+      }
+    ],
+    "gravity": 2.0
+  },
+  {
+    "__class__": "Patient",
+    "__module__": "Patient",
+    "nom": "arto",
+    "prenom": "john",
+    "age": 26,
+    "symptomes": [
+      {
+        "__class__": "Symptome",
+        "__module__": "Symptome",
+        "nom": "fever",
+        "niveau": 5
+      }
+    ],
+    "gravity": 5.0
+  },
+  {
+    "__class__": "Patient",
+    "__module__": "Patient",
+    "nom": "ricart",
+    "prenom": "diana",
+    "age": 26,
+    "symptomes": [
+      {
+        "__class__": "Symptome",
+        "__module__": "Symptome",
+        "nom": "cough",
+        "niveau": 4
+      },
+      {
+        "__class__": "Symptome",
+        "__module__": "Symptome",
+        "nom": "fever",
+        "niveau": 5
+      }
+    ],
+    "gravity": 4.5
+  },
+  {
+    "__class__": "Patient",
+    "__module__": "Patient",
+    "nom": "garcia",
+    "prenom": "luisa",
+    "age": 40,
+    "symptomes": [
+      {
+        "__class__": "Symptome",
+        "__module__": "Symptome",
+        "nom": "pain",
+        "niveau": 2
+      }
+    ],
+    "gravity": 2.0
+  }
+]

@@ -14,10 +14,9 @@ io = IO()
 def printIstruction():
     print("The available commands are:\n")
     print(">> create < (patient) | (personal)> < lastname > < name > < age > < (numberOfSymptomes) | (role) >")
-    # print(">> create < (patient) | (personal)> < lastname > < name > < age > < {'symp1':1,'symp2':5} | (role) >")
     print(">> read < (all) | lastname > < (patient) | (personal)")
     print(">> update < (lastname) | (name) | (age) > < lastname > < new Value >")
-    print(">> delete < lastname>")
+    print(">> delete < lastname >")
     print(">> istructions (show instructions)")
     print(">> quit (exit)\n")
     

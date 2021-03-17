@@ -18,7 +18,7 @@ class Patient(Occupant):
     super().__init__(nom, prenom, age)
     self.symptomes = symptomes
     self.gravity = self.comp_gravity()
-    print('>> Patient {} {} {} (severity: {}) has been added!'.format(self.nom.upper(), self.prenom.capitalize(), self.age, self.gravity))
+    print('\n>> Patient {} {} {} (severity: {}) has been added!'.format(self.nom.upper(), self.prenom.capitalize(), self.age, self.gravity))
     
 
   def __repr__(self):
