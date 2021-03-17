@@ -70,15 +70,17 @@ class IO:
   # --- READ ---
   # Displays the list of ordered patients | personal
   def read(self, _param, _type):
+      param = _param.lower()
+      typeRegister = _type.lower()
       # Check for a string in first argument
-      if (not self.hasNumbers(_param)):
-          if (_type == 'patient'):
-               x = _param.lower()
-               if not self.patients.sort(x):
+      if (not self.hasNumbers(param)):
+          if (typeRegister == 'patient'):
+              #  x = _param.lower()
+               if not self.patients.sort(param,typeRegister):
                    print(">> Patient register is empty!\n")
-          elif(_type == 'personal'):
-              x = _param.lower()
-              if not self.personnel.sort(x):
+          elif(typeRegister == 'personal'):
+              # x = _param.lower()
+              if not self.personnel.sort(param,typeRegister):
                   print(">> Personal register is empty!\n")
           else:
             print('The last argument is < patient | personal >. \n Please repeat')
@@ -130,28 +132,31 @@ class IO:
       print(">> The name is incorrect !\n")
 
   # --- TEST 1 ---
+  # Test method 1
+  # This method creates a patient, and a personal.
+  # Writes both Occupants into the list and JSON registry
+  # Erase the list and then recover the data from the JSON file
+    
   def test_1(self):
-    # Test method 1
-    self.create(["create", "patient", "smith", "john", 25, "{'toux':2,'fievre':4}"])
-    self.create(["create", "personnel", "moser", "mau-britt", 54, "neuroscientist"])
-    self.patients.dropLst()
+    self.create(["create", "patient", "Ricart", "Diana", 26, '2'])
+    self.create(["create", "personal", "Arto", "Emme", 30, "engineer"])
     self.personnel.dropLst()
-    print(">> Patient and personal lists deleted.")
-    self.patients.loadJson()
+    self.patients.dropLst()
+    print(">> The registry has been deleted")
     self.personnel.loadJson()
-    print(">> Patient and persoael lists loaded from json files.")
-    self.read("all")
+    self.patients.loadJson()
+    print(">> Erased and update of the registry has been successful")
+    self.read("all patient")
 
   # --- TEST 2 ---
   def test_2(self):
     # Test method 2
-    self.patients.loadJson()
     self.personnel.loadJson()
-    print(">> Patient and personal lists loaded from json files.")
-    self.read("all")
-    self.patients.update("nom", "smith", "travis")
-    self.delete("moser")
-    self.read("all")
+    self.patients.loadJson()
+    self.read("all personal")
+    self.personnel.update("age", "Arto", 47)
+    self.delete("Hamilton")
+    self.read("all personal")
 
   # --- IF INT ---
   # Returns True if convertible to Int, otherwise False.

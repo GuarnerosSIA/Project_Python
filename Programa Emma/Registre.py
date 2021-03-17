@@ -23,7 +23,7 @@ class Registre:
     self.saveJson()
 
   # --- UPDATE ---
-  # Allows the modification of the Occupant name or age
+  # Allows the modification of the parameter < name | lastname | age > of an Occupant 
   def update(self, _param, _nom, _newValue):
     find = False
     tmpLst = []
@@ -72,19 +72,29 @@ class Registre:
   # otherwise for '<name>'
     #      the < patient | personal > member corresponding to the last name
 
-  def sort(self, _param):
+  def sort(self, _param, _type):
     find = False
     if len(self.liste) > 0:
         # If the parameter of search is all
         if _param == 'all':
-          print("\n>> Patients ordered by medical emergency:")
-          newLst = {}
-          for x in self.liste:
-            newLst[str(x)] = x.gravity
-          for key in sorted(newLst, key=newLst.get, reverse=True):
-            print(key)  
-          print('\n')
-        # For a specific patient in the register
+          if _type == 'patient':
+            print("\n>> Patients ordered by medical emergency:")
+            newLst = {}
+            for x in self.liste:
+              newLst[str(x)] = x.gravity
+            for key in sorted(newLst, key=newLst.get, reverse=True):
+              print(key)  
+            print('\n')
+        
+          elif _type == 'personal':
+            print("\n>> List of personnel ordered by name:")
+            newLst = {}
+            for x in self.liste:
+              newLst[str(x)] = x.nom
+            for key in sorted(newLst, key=newLst.get, reverse=True):
+              print(key)  
+            print('\n') 
+        # For a specific name in the register    
         else:
             for x in self.liste:
                 if x.nom == _param:
@@ -160,5 +170,4 @@ class Registre:
         # print(obj)
     else:
         obj = our_dict
-    print("Im here now")
     return obj
