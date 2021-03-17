@@ -14,5 +14,29 @@
     "prenom": "emme",
     "age": 30,
     "role": "engineer"
+  },
+  {
+    "__class__": "Personnel",
+    "__module__": "Personnel",
+    "nom": "arto",
+    "prenom": "emme",
+    "age": 30,
+    "role": "engineer"
+  },
+  {
+    "__class__": "Personnel",
+    "__module__": "Personnel",
+    "nom": "arto",
+    "prenom": "emme",
+    "age": 30,
+    "role": "engineer"
+  },
+  {
+    "__class__": "Personnel",
+    "__module__": "Personnel",
+    "nom": "ricart",
+    "prenom": "alejandra",
+    "age": 26,
+    "role": "doctor"
   }
 ]

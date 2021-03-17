@@ -35,19 +35,22 @@ class IO:
                               hasSymptome = True
                               while hasSymptome:
                                 print ('Enter the < name > < pain_level > of symptome', s + 1)
-                                name, pain = input('>> ').split()
-                                if not self.hasNumbers(name): 
-                                  if self.ifInt(pain):
+                                try:
+                                  name, pain = input('>> ').split()
+                                  if not self.hasNumbers(name): 
+                                    if self.ifInt(pain):
                                           if 1 <= int(pain) <= 5:
                                               listSymptomes.append(Symptome(name, int(pain)))
                                               hasSymptome = False
                                           else:
                                               print('The pain must be an integer between 1 - 5 !!')
                                               print('Please try again !!')
+                                    else:
+                                      print('The pain of a symptom must be an integer !! \n Please repeat')
                                   else:
-                                    print('The pain of a symptom must be an integer !! \n Please repeat')
-                                else:
-                                  print('The name of a symptom must be a string !! \n Please repeat')
+                                    print('The name of a symptom must be a string !! \n Please repeat')
+                                except ValueError:
+                                  print('Need 2 parameter for the symptom < name > <gravity >')
                           newPatient = Patient(cmdLst[2].lower(), cmdLst[3].lower(), int(cmdLst[4]), listSymptomes)
                           self.patients.add(newPatient)
                           print()
@@ -124,10 +127,14 @@ class IO:
       
   # --- DELETE ---
   # Allows you to delete an occupant.
-  def delete(self, _param):
+  def delete(self, _param, _type):
     if not self.hasNumbers(_param):
-      if not self.patients.remove(_param.lower()) and not self.personnel.remove(_param.lower()):
-        print(">> The occupant {} cannot be found !\n".format(_param.upper()))
+      if _type == 'patient':
+        if not self.patients.remove(_param.lower()):
+          print(">> The patient {} cannot be found !\n".format(_param.upper()))
+      elif _type == 'personal':
+        if not self.personnel.remove(_param.lower()):
+          print(">> The personal {} cannot be found !\n".format(_param.upper()))
     else:
       print(">> The name is incorrect !\n")
 

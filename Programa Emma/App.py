@@ -16,7 +16,7 @@ def printIstruction():
     print(">> create < (patient) | (personal)> < lastname > < name > < age > < (numberOfSymptomes) | (role) >")
     print(">> read < (all) | lastname > < (patient) | (personal)")
     print(">> update < (lastname) | (name) | (age) > < lastname > < new Value >")
-    print(">> delete < lastname >")
+    print(">> delete < lastname > < patient | personal >")
     print(">> istructions (show instructions)")
     print(">> quit (exit)\n")
     
@@ -49,8 +49,8 @@ while True:
     io.update(cmdLst)
 
   # --- DELETE ---
-  elif cmdLst[0].lower() == "delete" and size == 2:
-    io.delete(cmdLst[1])
+  elif cmdLst[0].lower() == "delete" and size == 3:
+    io.delete(cmdLst[1], cmdLst[2])
 
   # --- TEST ---
   elif cmdLst[0].lower() == "test" and size == 2:
