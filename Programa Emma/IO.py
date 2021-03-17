@@ -153,10 +153,10 @@ class IO:
     # Test method 2
     self.personnel.loadJson()
     self.patients.loadJson()
-    self.read("all personal")
+    self.read("all", "personal")
     self.personnel.update("age", "Arto", 47)
     self.delete("Hamilton")
-    self.read("all personal")
+    self.read("all", "personal")
 
   # --- IF INT ---
   # Returns True if convertible to Int, otherwise False.
