@@ -116,6 +116,7 @@ class Registre:
   def saveJson(self):
     with open(self.chemin, 'w') as outf:
       json.dump(self.liste, outf,default=self.convert_to_dict, ensure_ascii=False, indent=2)
+    print('JSON File < {} > was saved'.format(self.chemin))
 
 
   # --- LOAD JSON ---

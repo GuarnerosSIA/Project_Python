@@ -140,6 +140,8 @@ class IO:
   def test_1(self):
     self.create(["create", "patient", "Ricart", "Diana", 26, '2'])
     self.create(["create", "personal", "Arto", "Emme", 30, "engineer"])
+    self.personnel.saveJson()
+    self.patients.saveJson()
     self.personnel.dropLst()
     self.patients.dropLst()
     print(">> The registry has been deleted")
@@ -153,10 +155,10 @@ class IO:
     # Test method 2
     self.personnel.loadJson()
     self.patients.loadJson()
-    self.read("all personal")
+    self.read("all", "personal")
     self.personnel.update("age", "Arto", 47)
     self.delete("Hamilton")
-    self.read("all personal")
+    self.read("all", "personal")
 
   # --- IF INT ---
   # Returns True if convertible to Int, otherwise False.
