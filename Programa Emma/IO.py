@@ -140,6 +140,8 @@ class IO:
   def test_1(self):
     self.create(["create", "patient", "Ricart", "Diana", 26, '2'])
     self.create(["create", "personal", "Arto", "Emme", 30, "engineer"])
+    self.personnel.saveJson()
+    self.patients.saveJson()
     self.personnel.dropLst()
     self.patients.dropLst()
     print(">> The registry has been deleted")
