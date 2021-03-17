@@ -164,7 +164,7 @@ class IO:
     self.patients.loadJson()
     self.read("all", "personal")
     self.personnel.update("age", "Arto", 47)
-    self.delete("Hamilton")
+    self.delete("Hamilton", 'personal')
     self.read("all", "personal")
 
   # --- IF INT ---

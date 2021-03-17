@@ -68,5 +68,27 @@
       }
     ],
     "gravity": 2.0
+  },
+  {
+    "__class__": "Patient",
+    "__module__": "Patient",
+    "nom": "ricart",
+    "prenom": "diana",
+    "age": 26,
+    "symptomes": [
+      {
+        "__class__": "Symptome",
+        "__module__": "Symptome",
+        "nom": "cough",
+        "niveau": 3
+      },
+      {
+        "__class__": "Symptome",
+        "__module__": "Symptome",
+        "nom": "fever",
+        "niveau": 4
+      }
+    ],
+    "gravity": 3.5
   }
 ]

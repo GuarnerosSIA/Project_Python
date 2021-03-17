@@ -4,7 +4,7 @@
     "__module__": "Personnel",
     "nom": "arto",
     "prenom": "emme",
-    "age": 30,
+    "age": 47,
     "role": "engineer"
   },
   {
@@ -12,7 +12,7 @@
     "__module__": "Personnel",
     "nom": "arto",
     "prenom": "emme",
-    "age": 30,
+    "age": 47,
     "role": "engineer"
   },
   {
@@ -20,7 +20,7 @@
     "__module__": "Personnel",
     "nom": "arto",
     "prenom": "emme",
-    "age": 30,
+    "age": 47,
     "role": "engineer"
   },
   {
@@ -28,7 +28,7 @@
     "__module__": "Personnel",
     "nom": "arto",
     "prenom": "emme",
-    "age": 30,
+    "age": 47,
     "role": "engineer"
   },
   {
@@ -38,5 +38,13 @@
     "prenom": "alejandra",
     "age": 26,
     "role": "doctor"
+  },
+  {
+    "__class__": "Personnel",
+    "__module__": "Personnel",
+    "nom": "arto",
+    "prenom": "emme",
+    "age": 47,
+    "role": "engineer"
   }
 ]
