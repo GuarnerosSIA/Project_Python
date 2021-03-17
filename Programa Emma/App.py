@@ -9,8 +9,7 @@ io = IO()
 """
   MAIN MODULE
   =========================
-  The main module manage all the interactions with the user.   
-  
+  The main module manage all the interactions with the user
 """
 def printIstruction():
     print("The available commands are:\n")

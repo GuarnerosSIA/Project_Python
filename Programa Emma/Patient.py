@@ -14,9 +14,9 @@ class Patient(Occupant):
 
   # CONSTRUCTOR
   # param:  (name, last name, age, object symptom)
-  def __init__(self, _nom, _prenom, _age, _symptomes,gravity=0):
-    super().__init__(_nom, _prenom, _age)
-    self.symptomes = _symptomes
+  def __init__(self, nom, prenom, age, symptomes,gravity=0):
+    super().__init__(nom, prenom, age)
+    self.symptomes = symptomes
     self.gravity = self.comp_gravity()
     print('>> Patient {} {} {} (severity: {}) has been added!'.format(self.nom.upper(), self.prenom.capitalize(), self.age, self.gravity))
     

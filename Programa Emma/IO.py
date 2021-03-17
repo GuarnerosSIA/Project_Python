@@ -148,7 +148,7 @@ class IO:
     self.personnel.loadJson()
     self.patients.loadJson()
     print(">> Erased and update of the registry has been successful")
-    self.read("all patient")
+    self.read("all", "patient")
 
   # --- TEST 2 ---
   def test_2(self):

@@ -162,10 +162,10 @@ class Registre:
         
         # Get the class from the module
         class_ = getattr(module,class_name)
-        # print("Im here")
-        # print(module_name)
-        # print(module)
-        # print(class_)
+        print("Im here")
+        print(module_name)
+        print(module)
+        print(class_)
         # Use dictionary unpacking to initialize the object
         obj = class_(**our_dict)
         # print(obj)

@@ -1,1 +1,34 @@
-[]
+[
+  {
+    "__class__": "Personnel",
+    "__module__": "Personnel",
+    "nom": "arto",
+    "prenom": "emme",
+    "age": 47,
+    "role": "engineer"
+  },
+  {
+    "__class__": "Personnel",
+    "__module__": "Personnel",
+    "nom": "arto",
+    "prenom": "emme",
+    "age": 47,
+    "role": "engineer"
+  },
+  {
+    "__class__": "Personnel",
+    "__module__": "Personnel",
+    "nom": "arto",
+    "prenom": "emme",
+    "age": 47,
+    "role": "engineer"
+  },
+  {
+    "__class__": "Personnel",
+    "__module__": "Personnel",
+    "nom": "arto",
+    "prenom": "emme",
+    "age": 47,
+    "role": "engineer"
+  }
+]

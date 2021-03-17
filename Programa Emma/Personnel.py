@@ -12,9 +12,9 @@ class Personnel(Occupant):
   """
 
   # === CONSTRUCTOR ===
-  def __init__(self, _nom, _prenom, _age, _role):
-    super().__init__(_nom, _prenom, _age)
-    self.role = _role
+  def __init__(self, nom, prenom, age, role):
+    super().__init__(nom, prenom, age)
+    self.role = role
     print('>> The {0} {1} {2} is {3} years old and was added to the personal register'.format(self.role, self.nom.upper(), self.prenom.capitalize(), self.age))
 
   def __repr__(self):

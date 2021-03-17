@@ -7,10 +7,10 @@ class Occupant:
     Parent class of Patient and Personnel.
   '''
   
-  def __init__(self, _nom, _prenom, _age):
-    self.nom = _nom
-    self.prenom = _prenom
-    self.age = _age
+  def __init__(self, nom, prenom, age):
+    self.nom = nom
+    self.prenom = prenom
+    self.age = age
 
 
   def updateElement(self, _param, _new_param):

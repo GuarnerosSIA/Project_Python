@@ -1,1 +1,90 @@
-[]
+[
+  {
+    "__class__": "Patient",
+    "__module__": "Patient",
+    "nom": "ricart",
+    "prenom": "diana",
+    "age": 26,
+    "symptomes": [
+      {
+        "__class__": "Symptome",
+        "__module__": "Symptome",
+        "nom": "dada",
+        "niveau": 4
+      },
+      {
+        "__class__": "Symptome",
+        "__module__": "Symptome",
+        "nom": "fsfs",
+        "niveau": 5
+      }
+    ],
+    "gravity": 4.5
+  },
+  {
+    "__class__": "Patient",
+    "__module__": "Patient",
+    "nom": "ricart",
+    "prenom": "diana",
+    "age": 26,
+    "symptomes": [
+      {
+        "__class__": "Symptome",
+        "__module__": "Symptome",
+        "nom": "dd",
+        "niveau": 3
+      },
+      {
+        "__class__": "Symptome",
+        "__module__": "Symptome",
+        "nom": "dd",
+        "niveau": 5
+      }
+    ],
+    "gravity": 4.0
+  },
+  {
+    "__class__": "Patient",
+    "__module__": "Patient",
+    "nom": "ricart",
+    "prenom": "diana",
+    "age": 26,
+    "symptomes": [
+      {
+        "__class__": "Symptome",
+        "__module__": "Symptome",
+        "nom": "gre",
+        "niveau": 5
+      },
+      {
+        "__class__": "Symptome",
+        "__module__": "Symptome",
+        "nom": "fr",
+        "niveau": 2
+      }
+    ],
+    "gravity": 3.5
+  },
+  {
+    "__class__": "Patient",
+    "__module__": "Patient",
+    "nom": "ricart",
+    "prenom": "diana",
+    "age": 26,
+    "symptomes": [
+      {
+        "__class__": "Symptome",
+        "__module__": "Symptome",
+        "nom": "aaf",
+        "niveau": 3
+      },
+      {
+        "__class__": "Symptome",
+        "__module__": "Symptome",
+        "nom": "ags",
+        "niveau": 1
+      }
+    ],
+    "gravity": 2.0
+  }
+]
