@@ -9,7 +9,7 @@ class IO:
   """
     CLASS IO
     Defines the 4 methods: create, read, update and delete
-    @author: Alejandro H.
+    @author: José Alejandro Hernández Pérez
   """
 
   # === CONSTRUCTEUR ===

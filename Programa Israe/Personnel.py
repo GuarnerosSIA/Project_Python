@@ -7,7 +7,7 @@ class Personnel(Occupant):
   """
     CLASS PERSONNEL
     These class inherits from Occupant class
-    @author: Alejandro H.    
+    @author: José Alejandro Hernández Pérez
   """
 
   # === CONSTRUCTOR ===

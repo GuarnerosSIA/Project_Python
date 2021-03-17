@@ -5,7 +5,7 @@ class Symptome:
     CLASS SYMPTOME
     This class encapsulate the possible symptomes asscoiated to a patient
     It allows to process the information inside the patient
-    @author: Alejandro H.
+    @author: José Alejandro Hernández Pérez
     """
     def __init__(self, nom, niveau):
         self.nom = nom

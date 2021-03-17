@@ -7,7 +7,7 @@ class Patient(Occupant):
   """
     CLASE PACIENTE
     Inherits from Occupant for patients with symptoms
-    @author: Alejandro H.
+    @author: José Alejandro Hernández Pérez
   """
 
   # CONSTRUCTOR

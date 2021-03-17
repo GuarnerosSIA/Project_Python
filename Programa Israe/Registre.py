@@ -7,7 +7,7 @@ class Registre:
   """
     CLASSE REGISTRE
     This class allows to manage the patient and staff register
-    @author: Alejandro H.
+    @author: José Alejandro Hernández Pérez
   """
   # === CONSTRUCTOR ===
   def __init__(self, _chemin):

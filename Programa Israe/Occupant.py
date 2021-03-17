@@ -5,7 +5,7 @@ class Occupant:
     CLASS OCCUPANT
     Anyone in the hospital.
     Parent class of Patient and Staff.
-    @author: Alejandro H.
+    @author: José Alejandro Hernández Pérez
   """
   def __init__(self, _nom, _prenom, _age):
     self.nom = _nom
